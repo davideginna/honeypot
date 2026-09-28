@@ -368,7 +368,7 @@ function dayView(date) {
     ${weighCard(date)}
     ${cards}${alt}
     ${waterCard(k)}
-    <p class="muted small" style="margin:12px 4px">Pranzo e cena: grammi ridotti del 20% (verdure escluse) · olio a crudo · pesi a crudo.</p>`;
+    <p class="muted small" style="margin:12px 4px">Olio a crudo · pesi a crudo.</p>`;
 }
 
 function weekView(start) {
