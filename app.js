@@ -96,6 +96,8 @@ const state = Object.assign(
     notif: { weigh: true, weighTime: '08:00', water: true, waterFrom: '09:00', waterTo: '21:00', waterEvery: 90, checkin: true, checkinDay: 1, checkinTime: '09:00' } },
   load(STATE_KEY, {})
 );
+if (!state.weighEvery) state.weighEvery = 2; // settimane tra una pesata e l'altra
+if (!state.weighAnchor) state.weighAnchor = keyOf(weekStart(today())); // settimana di riferimento
 state.notif = Object.assign({ weigh: true, weighTime: '08:00', water: true, waterFrom: '09:00', waterTo: '21:00', waterEvery: 90, checkin: true, checkinDay: 1, checkinTime: '09:00' }, state.notif);
 let userWeights = load(WEIGHTS_KEY, []);
 let water = load(WATER_KEY, {});
@@ -156,9 +158,14 @@ function allWeights() {
 const fmtKg = n => n.toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const shortDate = k => fmt(parseKey(k), { day: 'numeric', month: 'short', year: 'numeric' });
 const liters = g => (g * GLASS_ML / 1000).toLocaleString('it-IT', { maximumFractionDigits: 2 });
+function isWeighDay(d) {
+  if (dow(d) !== state.weighDay) return false;
+  const weeks = Math.round((weekStart(d) - parseKey(state.weighAnchor)) / (7 * 864e5));
+  return ((weeks % state.weighEvery) + state.weighEvery) % state.weighEvery === 0;
+}
 function nextWeighDate(from = today()) {
-  const diff = (state.weighDay - dow(from) + 7) % 7;
-  return addDays(from, diff);
+  for (let i = 0; i < 7 * state.weighEvery; i++) if (isWeighDay(addDays(from, i))) return addDays(from, i);
+  return from;
 }
 const weighedOn = k => userWeights.some(w => w.d === k);
 
@@ -177,11 +184,11 @@ function computeAchievements() {
   const goal = k => (water[k] || 0) >= WATER_GOAL;
   let bestWater = 0;
   Object.keys(water).forEach(k => { if (goal(k)) bestWater = Math.max(bestWater, streak(d => goal(keyOf(d)), parseKey(k))); });
-  // weekly weigh-ins in consecutive weeks
+  // weigh-ins without skipping a period (1 or 2 weeks)
   const weeks = [...new Set(mine.map(w => keyOf(weekStart(parseKey(w.d)))))].sort();
   let bestWeeks = weeks.length ? 1 : 0, run = 1;
   for (let i = 1; i < weeks.length; i++) {
-    run = (parseKey(weeks[i]) - parseKey(weeks[i - 1])) / 864e5 < 8 ? run + 1 : 1;
+    run = (parseKey(weeks[i]) - parseKey(weeks[i - 1])) / 864e5 < 7 * state.weighEvery + 1 ? run + 1 : 1;
     bestWeeks = Math.max(bestWeeks, run);
   }
   const p = (v, max) => Math.max(0, Math.min(1, v / max));
@@ -193,10 +200,11 @@ function computeAchievements() {
     { id: 'l10', t: 'Doppia cifra', d: '−10 kg dalla ripartenza', ic: 'trophy', ok: lost >= 10, pr: p(lost, 10), sub: `${fmtKg(Math.max(0, lost))} / 10 kg` },
     { id: 'u95', t: 'Sotto i 95', d: 'Pesata sotto 95 kg', ic: 'scale', ok: minMine < 95 },
     { id: 'u90', t: 'Sotto i 90', d: 'Pesata sotto 90 kg', ic: 'scale', ok: minMine < 90 },
+    { id: 'goal', t: 'Peso desiderato', d: state.goalKg ? `Arrivare a ${fmtKg(state.goalKg)} kg` : 'Imposta il peso desiderato', ic: 'trophy', ok: !!state.goalKg && minMine <= state.goalKg },
     { id: 'rec', t: 'Record', d: `Sotto il tuo minimo storico (${fmtKg(hmin)} kg)`, ic: 'trophy', ok: minMine < hmin },
     { id: 'bmi', t: 'BMI sotto 30', d: 'Fuori dalla fascia obesità', ic: 'run', ok: bmi(minMine) < 30 },
-    { id: 'w4', t: 'Costanza', d: 'Pesata 4 settimane di fila', ic: 'scale', ok: bestWeeks >= 4, pr: p(bestWeeks, 4), sub: `${bestWeeks} / 4 settimane` },
-    { id: 'w12', t: 'Abitudine', d: 'Pesata 12 settimane di fila', ic: 'scale', ok: bestWeeks >= 12, pr: p(bestWeeks, 12), sub: `${bestWeeks} / 12 settimane` },
+    { id: 'w4', t: 'Costanza', d: '4 pesate di fila senza saltarne una', ic: 'scale', ok: bestWeeks >= 4, pr: p(bestWeeks, 4), sub: `${bestWeeks} / 4 pesate` },
+    { id: 'w12', t: 'Abitudine', d: '12 pesate di fila senza saltarne una', ic: 'scale', ok: bestWeeks >= 12, pr: p(bestWeeks, 12), sub: `${bestWeeks} / 12 pesate` },
     { id: 'h1', t: 'Idratato', d: '2 L d\'acqua in un giorno', ic: 'water', ok: bestWater >= 1 },
     { id: 'h7', t: 'Settimana idratata', d: '2 L al giorno per 7 giorni', ic: 'water', ok: bestWater >= 7, pr: p(bestWater, 7), sub: `${bestWater} / 7 giorni` },
     { id: 'ck1', t: 'Misurato', d: 'Primo check-in mensile', ic: 'scale', ok: Object.keys(checkins).length >= 1 },
@@ -279,6 +287,9 @@ function waterCard(k) {
 }
 
 // ---------- monthly check-in ----------
+// Body fat % from tape measurements, US Navy formula (men, cm)
+const navyBodyFat = (waist, neck, height) =>
+  waist > neck ? 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450 : null;
 const monthKey = d => keyOf(d).slice(0, 7);
 const checkinDue = () => !checkins[monthKey(today())];
 function checkinCompact() {
@@ -304,7 +315,9 @@ function checkinSection() {
           <div class="field"><label for="ckFm">Massa grassa (kg)</label><input id="ckFm" type="number" inputmode="decimal" step="0.1" min="1" max="120"></div>
           <div class="field"><label for="ckWaist">Vita (cm)</label><input id="ckWaist" type="number" inputmode="decimal" step="0.5" min="40" max="200"></div>
           <div class="field"><label for="ckHips">Fianchi (cm)</label><input id="ckHips" type="number" inputmode="decimal" step="0.5" min="40" max="200"></div>
+          <div class="field"><label for="ckNeck">Collo (cm)</label><input id="ckNeck" type="number" inputmode="decimal" step="0.5" min="25" max="70"></div>
         </div>
+        <p class="muted small" style="margin:12px 0 0">Senza bilancia impedenziometrica lascia vuota la massa grassa: la stimo da <b>vita</b> e <b>collo</b> (metodo US Navy). Metro da sarta, al mattino: vita all'altezza dell'ombelico a pancia rilassata, collo appena sotto il pomo d'Adamo.</p>
         <div class="form-actions"><button class="filled-btn" type="submit">Salva check-in</button></div>
       </form>
     </section>` : `
@@ -313,14 +326,14 @@ function checkinSection() {
   const hist = list.length ? `
     <div class="section-title">Check-in mensili</div>
     <div class="card"><ul class="wlist">${list.map(([m, c]) => `<li><div class="d">${fmt(parseKey(c.d), { month: 'long', year: 'numeric' })}
-      <small>${[c.fm && `grassa ${fmtKg(c.fm)} kg`, c.waist && `vita ${c.waist} cm`, c.hips && `fianchi ${c.hips} cm`].filter(Boolean).join(' · ') || '—'}</small></div>
+      <small>${[c.fm && `grassa ${c.fmEst ? '~' : ''}${fmtKg(c.fm)} kg${c.fmEst ? ' (stima)' : ''}`, c.neck && `collo ${c.neck} cm`, c.waist && `vita ${c.waist} cm`, c.hips && `fianchi ${c.hips} cm`].filter(Boolean).join(' · ') || '—'}</small></div>
       <span class="kg">${fmtKg(c.kg)} kg</span>
       <button class="icon-btn" data-del-ck="${m}" aria-label="Elimina check-in ${m}"><svg viewBox="0 0 24 24"><path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button></li>`).join('')}</ul></div>` : '';
   return { form, hist };
 }
 
 function weighCard(date) {
-  if (dow(date) !== state.weighDay) return '';
+  if (!isWeighDay(date)) return '';
   const k = keyOf(date);
   const done = weighedOn(k);
   return `
@@ -363,11 +376,13 @@ function weekView(start) {
   const days = [...Array(7)].map((_, i) => addDays(start, i));
   return `<div class="week-grid">${days.map(d => {
     const m = phaseFor(d).days[dow(d)];
-    const rows = ['colazione', 'pranzo', 'cena'].filter(s => m[s])
-      .map(s => `<dt>${DATA.slots[s]}</dt><dd>${mealText(m, s)}</dd>`).join('');
+    // mobile shows the three main meals; wide screens show every slot, unclamped
+    const main3 = ['colazione', 'pranzo', 'cena'];
+    const rows = SLOT_ORDER.filter(s => s !== 'sveglia' && m[s])
+      .map(s => `<dt${main3.includes(s) ? '' : ' class="extra"'}>${DATA.slots[s]}</dt><dd${main3.includes(s) ? '' : ' class="extra"'}>${mealText(m, s)}</dd>`).join('');
     const k = keyOf(d), wn = water[k] || 0;
     const extra = [
-      dow(d) === state.weighDay ? `<span class="mini">${icon('scale')}${weighedOn(k) ? 'pesato' : 'pesata'}</span>` : '',
+      isWeighDay(d) ? `<span class="mini">${icon('scale')}${weighedOn(k) ? 'pesato' : 'pesata'}</span>` : '',
       wn ? `<span class="mini">${icon('water')}${liters(wn)} L</span>` : '',
     ].join('');
     return `<button class="card wday${sameDay(d, t) ? ' today' : ''}" data-open="${k}">
@@ -468,7 +483,7 @@ function shopView(days) {
       <div class="shop-item"><span class="dotc"></span>
         <span class="nm">${esc(e.n)}${e.alt.size ? `<small>${esc([...e.alt].join(' · '))}</small>` : ''}</span>
         <span class="qt">${fmtAmount(e)}</span></div>`).join('')}</section>`).join('')}
-    <p class="muted small" style="margin:8px 4px">Quantità a crudo, già ridotte del 20% per pranzo e cena. Olio EVO: 1–2 cucchiai a pasto. Verdure a volontà: prendine in abbondanza.</p>`;
+    <p class="muted small" style="margin:8px 4px">Olio EVO: 1–2 cucchiai a pasto. Verdure a volontà.</p>`;
 }
 // one product per line: paste into Bring
 function shopText() {
@@ -496,9 +511,10 @@ function renderWeight() {
       <div class="ico">${icon('scale')}</div>
       <div class="grow"><div class="k">Prossima pesata</div>
         <div class="big">${sameDay(nextLabel, today()) ? 'Oggi' : fmt(nextLabel, { weekday: 'long', day: 'numeric', month: 'long' })}</div>
-        <div class="muted small">Una volta a settimana, al mattino a digiuno dopo il bagno</div></div>
+        <div class="muted small">${state.weighEvery === 1 ? 'Ogni settimana' : 'Ogni 2 settimane'}, al mattino a digiuno dopo il bagno</div></div>
       <label class="day-pick"><span class="sr">Giorno della pesata</span>
-        <select id="weighDay">${DAY_NAMES.map((n, i) => `<option value="${i}"${i === state.weighDay ? ' selected' : ''}>${n.slice(0, 3)}</option>`).join('')}</select></label>
+        <select id="weighDay">${DAY_NAMES.map((n, i) => `<option value="${i}"${i === state.weighDay ? ' selected' : ''}>${n.slice(0, 3)}</option>`).join('')}</select>
+        <select id="weighEvery" aria-label="Frequenza pesata"><option value="1"${state.weighEvery === 1 ? ' selected' : ''}>1 sett.</option><option value="2"${state.weighEvery === 2 ? ' selected' : ''}>2 sett.</option></select></label>
     </section>
     <div class="stats">
       <div class="stat"><div class="k">Ultimo</div><div class="v">${fmtKg(last.kg)}</div><div class="s">${shortDate(last.d)}</div></div>
@@ -507,6 +523,7 @@ function renderWeight() {
         <div class="v">${delta !== null ? (delta > 0 ? '+' : '') + fmtKg(delta) : fmtKg(min.kg)}</div>
         <div class="s">${delta !== null ? 'dal ' + shortDate(restart.d) : shortDate(min.d)}</div></div>
     </div>
+    ${goalCard(last)}
     <div class="card">
       <div class="section-title" style="margin-top:0">Nuova pesata</div>
       <form id="wForm">
@@ -548,6 +565,24 @@ function renderWeight() {
     </div>`;
   delete state.weighPrefill;
   drawCharts();
+}
+
+function goalCard(last) {
+  const g = state.goalKg;
+  const input = `<div class="field goal-field"><label for="goalKg">Peso desiderato (kg)</label>
+    <input id="goalKg" type="number" inputmode="decimal" step="0.5" min="40" max="200" value="${g ?? ''}" placeholder="es. 85"></div>`;
+  if (!g) return `<section class="card goal-card">${input}<p class="muted small" style="margin:8px 0 0">Imposta il tuo obiettivo per vedere quanto manca.</p></section>`;
+  const start = userWeights[0] ? userWeights[0].kg : last.kg;
+  const left = last.kg - g;
+  const pr = start > g ? Math.max(0, Math.min(1, (start - last.kg) / (start - g))) : (left <= 0 ? 1 : 0);
+  const bmiGoal = g / Math.pow(DATA.height / 100, 2);
+  return `<section class="card goal-card">
+    <div class="goal-top"><div class="grow"><div class="k">Obiettivo</div>
+      <div class="big">${left > 0 ? `Mancano <b>${fmtKg(left)} kg</b>` : 'Raggiunto 🎉'}</div>
+      <div class="muted small">${fmtKg(g)} kg · BMI ${bmiGoal.toFixed(1).replace('.', ',')}</div></div>${input}</div>
+    <div class="progress" style="margin-top:12px"><span style="width:${pr * 100}%"></span></div>
+    <div class="muted xs" style="margin-top:6px">${Math.round(pr * 100)}% dalla ripartenza (${fmtKg(start)} kg)</div>
+  </section>`;
 }
 
 // ---------- charts (inline SVG, one y-scale per chart) ----------
@@ -600,12 +635,12 @@ function attachHover(wrap, svg, W, H, xs, tipHtml, yAt) {
     tip.style.opacity = 0; cross.setAttribute('visibility', 'hidden'); if (hl) hl.setAttribute('visibility', 'hidden');
   });
 }
-function lineChart(wrap, pts, { H = 220, pad = 1, bands = [], unit = '', dec = 1, empty = 'Dati insufficienti.' } = {}) {
+function lineChart(wrap, pts, { H = 220, pad = 1, bands = [], unit = '', dec = 1, empty = 'Dati insufficienti.', goal = null } = {}) {
   if (pts.length < 2) { wrap.innerHTML = `<p class="muted small" style="padding:24px 8px;text-align:center">${empty}</p>`; return; }
   const { W, m } = chartFrame(wrap, H);
   const tx = pts.map(p => p.t), vs = pts.map(p => p.v);
   const x0 = tx[0], x1 = tx[tx.length - 1];
-  const ticks = yTicks(Math.min(...vs) - pad, Math.max(...vs) + pad);
+  const ticks = yTicks(Math.min(...vs, goal ?? Infinity) - pad, Math.max(...vs, goal ?? -Infinity) + pad);
   const y0 = ticks[0], y1 = ticks[ticks.length - 1];
   const X = t => m.l + (t - x0) / (x1 - x0 || 1) * (W - m.l - m.r);
   const Y = v => m.t + (y1 - Math.min(y1, Math.max(y0, v))) / (y1 - y0) * (H - m.t - m.b);
@@ -627,7 +662,7 @@ function lineChart(wrap, pts, { H = 220, pad = 1, bands = [], unit = '', dec = 1
   }
   const dots = pts.map((p, i) => `<circle class="pt${p.user ? ' user' : ''}" cx="${X(tx[i])}" cy="${Y(vs[i])}" r="4"/>`).join('');
   wrap.innerHTML = `<svg class="chart" style="height:${H}px" viewBox="0 0 ${W} ${H}" role="img" aria-label="da ${num(vs[0])} a ${num(vs[vs.length - 1])} ${unit}">
-    ${g}${lines}${dots}<line class="cross" y1="${m.t}" y2="${H - m.b}" visibility="hidden"/><circle class="hl" r="6" visibility="hidden"/>
+    ${g}${goal != null ? `<line class="goal-line" x1="${m.l}" x2="${W - m.r}" y1="${Y(goal)}" y2="${Y(goal)}"/><text class="band-label" x="${m.l + 4}" y="${Y(goal) - 5}">desiderato ${num(goal)} ${unit}</text>` : ''}${lines}${dots}<line class="cross" y1="${m.t}" y2="${H - m.b}" visibility="hidden"/><circle class="hl" r="6" visibility="hidden"/>
     <rect width="${W}" height="${H}" fill="transparent"/></svg>`;
   attachHover(wrap, $('svg', wrap), W, H, tx.map(X), i => `<b>${num(vs[i])} ${unit}</b><br>${shortDate(keyOf(new Date(tx[i])))}`, i => Y(vs[i]));
 }
@@ -673,7 +708,7 @@ function drawCharts() {
   if (state.range === 'mine') pts = pts.filter(p => p.src === 'mio');
   const tp = pts.map(p => ({ t: parseKey(p.d).getTime(), v: p.kg, user: p.src === 'mio' }));
   const empty = state.range === 'mine' ? 'Aggiungi almeno due pesate per vedere la ripartenza.' : 'Dati insufficienti.';
-  lineChart($('#chWeight'), tp, { unit: 'kg', empty });
+  lineChart($('#chWeight'), tp, { unit: 'kg', empty, goal: state.goalKg || null });
   const h2 = Math.pow(DATA.height / 100, 2);
   lineChart($('#chBmi'), tp.map(p => ({ ...p, v: p.v / h2 })), {
     unit: '', pad: 1.5, empty, bands: [
@@ -730,7 +765,7 @@ function pushConfig() {
   return {
     timezone: 'Europe/Rome',
     subscriptions: sub ? [sub] : [],
-    weigh: { enabled: n.weigh, day: state.weighDay, time: n.weighTime },
+    weigh: { enabled: n.weigh, day: state.weighDay, time: n.weighTime, everyWeeks: state.weighEvery, anchor: state.weighAnchor },
     water: { enabled: n.water, from: n.waterFrom, to: n.waterTo, everyMinutes: Number(n.waterEvery) },
     checkin: { enabled: n.checkin, dayOfMonth: Number(n.checkinDay), time: n.checkinTime },
   };
@@ -753,7 +788,7 @@ function remindersCard() {
   return `
     <div class="section-title">Promemoria</div>
     <div class="card reminders">
-      <div class="rem-row"><div class="grow"><b>Pesata</b><div class="muted small">ogni ${DAY_NAMES[state.weighDay]}</div></div>${time('weighTime', n.weighTime)}${sw('weigh', n.weigh)}</div>
+      <div class="rem-row"><div class="grow"><b>Pesata</b><div class="muted small">${DAY_NAMES[state.weighDay]}, ${state.weighEvery === 1 ? 'ogni settimana' : 'ogni 2 settimane'}</div></div>${time('weighTime', n.weighTime)}${sw('weigh', n.weigh)}</div>
       <div class="rem-row"><div class="grow"><b>Acqua</b><div class="muted small">dalle
         ${time('waterFrom', n.waterFrom)} alle ${time('waterTo', n.waterTo)} ogni
         <select data-notif="waterEvery">${[60, 90, 120, 180].map(m => `<option value="${m}"${Number(n.waterEvery) === m ? ' selected' : ''}>${m < 120 ? m + ' min' : m / 60 + ' h'}</option>`).join('')}</select></div></div>${sw('water', n.water)}</div>
@@ -889,7 +924,13 @@ function bind() {
       const num = id => { const v = parseFloat(String($(id).value).replace(',', '.')); return Number.isFinite(v) ? v : null; };
       const d = $('#ckDate').value, kg = num('#ckKg');
       if (!d || !(kg > 30 && kg < 250)) return snack('Controlla data e peso');
-      checkins[d.slice(0, 7)] = { d, kg: Math.round(kg * 10) / 10, fm: num('#ckFm'), waist: num('#ckWaist'), hips: num('#ckHips') };
+      let fm = num('#ckFm'), fmEst = false;
+      const waist = num('#ckWaist'), neck = num('#ckNeck');
+      if (fm == null && waist && neck) {
+        const bf = navyBodyFat(waist, neck, DATA.height);
+        if (bf > 3 && bf < 60) { fm = Math.round(kg * bf) / 100; fmEst = true; }
+      }
+      checkins[d.slice(0, 7)] = { d, kg: Math.round(kg * 10) / 10, fm, fmEst, waist, neck, hips: num('#ckHips') };
       save(CHECKIN_KEY, checkins);
       userWeights = userWeights.filter(w => w.d !== d).concat({ d, kg: Math.round(kg * 10) / 10 }).sort((a, b) => a.d.localeCompare(b.d));
       save(WEIGHTS_KEY, userWeights);
@@ -916,6 +957,16 @@ function bind() {
       return;
     }
     if (t.dataset.notif) { state.notif[t.dataset.notif] = t.value; persist(); return; }
+    if (t.id === 'goalKg') {
+      const v = parseFloat(String(t.value).replace(',', '.'));
+      state.goalKg = v >= 40 && v <= 200 ? Math.round(v * 2) / 2 : null;
+      persist(); renderWeight(); checkNewAchievements();
+      return;
+    }
+    if (t.id === 'weighEvery') {
+      state.weighEvery = Number(t.value); state.weighAnchor = keyOf(weekStart(today()));
+      persist(); renderWeight(); return;
+    }
     if (t.id === 'weighDay') { state.weighDay = Number(t.value); persist(); renderWeight(); return; }
     if (t.id !== 'importIn' || !t.files[0]) return;
     try {

@@ -83,6 +83,15 @@ function daysInMonth(year, month) {
  * Windows longer than 3h are shortened to the last 3h. At most one water reminder.
  * @returns {{title:string, body:string, tag:string, url:string}[]}
  */
+// Weigh-ins every `everyWeeks` weeks (default 1), counted from the Monday `anchor` (YYYY-MM-DD).
+function inWeighWeek(w, mondayMs) {
+  const every = Math.max(1, Number(w.everyWeeks) || 1);
+  if (every === 1 || !/^\d{4}-\d{2}-\d{2}$/.test(w.anchor || '')) return true;
+  const [y, m, d] = w.anchor.split('-').map(Number);
+  const weeks = Math.round((mondayMs - Date.UTC(y, m - 1, d)) / (7 * DAY_MS));
+  return ((weeks % every) + every) % every === 0;
+}
+
 export function dueReminders(config, fromMs, toMs) {
   const tz = config?.timezone || 'Europe/Rome';
   if (!(toMs > fromMs)) return [];
@@ -104,7 +113,7 @@ export function dueReminders(config, fromMs, toMs) {
     const weekday = (dt.getUTCDay() + 6) % 7; // 0 = Monday … 6 = Sunday
 
     const w = config?.weigh;
-    if (w?.enabled && Number(w.day) === weekday) {
+    if (w?.enabled && Number(w.day) === weekday && inWeighWeek(w, dayMs - weekday * DAY_MS)) {
       const ts = at(y, m, d, parseTime(w.time));
       if (inWindow(ts)) hits.weigh.push(ts);
     }

@@ -383,3 +383,22 @@ details.rule[open] .chev { transform: rotate(180deg); }
 .steps li.done { color: var(--primary); font-weight: 500; }
 .checkin { background: var(--primary-container); color: var(--on-primary-container); }
 .checkin .ico { color: var(--primary); }
+
+/* Target weight */
+.goal-card .goal-top { display: flex; align-items: center; gap: 12px; }
+.goal-card .goal-top .goal-field { width: 130px; flex: none; }
+.goal-card .field label { background: var(--surface-low); }
+.goal-card .big b { color: var(--primary); font-weight: 600; }
+
+/* Week boxes: all meals on wide screens */
+.wday .extra { display: none; }
+@media (min-width: 1000px) {
+  main { max-width: 1320px; }
+  .week-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); align-items: start; }
+  .wday .extra { display: block; }
+  .wday dd { -webkit-line-clamp: unset; display: block; overflow: visible; }
+  .wday dl { grid-template-columns: 96px 1fr; gap: 6px 12px; }
+  .goals { grid-template-columns: repeat(4, 1fr); }
+  .rules-grid { grid-template-columns: 1fr 1fr; }
+  .shop-cat-wrap { columns: 2; }
+}

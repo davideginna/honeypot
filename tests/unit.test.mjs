@@ -93,7 +93,7 @@ test('shopping list aggregates a week Mon–Sun with reductions', async () => {
 });
 
 test('weigh-in day and achievements', async () => {
-  await ev(`state.weighDay = 0`);
+  await ev(`(state.weighDay = 0, state.weighEvery = 1)`);
   assert.equal(await ev(`keyOf(nextWeighDate(new Date(2026, 8, 29)))`), '2026-10-05');
   assert.equal(await ev(`keyOf(nextWeighDate(new Date(2026, 8, 28)))`), '2026-09-28');
   const a = await ev(`(() => {
@@ -121,4 +121,22 @@ test('push config follows app settings', async () => {
   assert.equal(c.water.everyMinutes, 120);
   assert.deepEqual(Object.keys(c).sort(), ['checkin', 'subscriptions', 'timezone', 'water', 'weigh']);
   await ev(`state.weighDay = 0`);
+});
+
+test('body fat estimate from tape (US Navy, men)', async () => {
+  const bf = await ev(`navyBodyFat(105, 42, 175)`);
+  assert.ok(Math.abs(bf - 27.9) < 0.2, 'bf ' + bf);
+  assert.equal(await ev(`navyBodyFat(40, 42, 175)`), null, 'waist must exceed neck');
+});
+
+test('weigh-in every 2 weeks', async () => {
+  await ev(`(state.weighDay = 0, state.weighEvery = 2, state.weighAnchor = '2026-09-28')`);
+  assert.equal(await ev(`isWeighDay(new Date(2026, 8, 28))`), true);
+  assert.equal(await ev(`isWeighDay(new Date(2026, 9, 5))`), false, 'off week');
+  assert.equal(await ev(`isWeighDay(new Date(2026, 9, 12))`), true);
+  assert.equal(await ev(`keyOf(nextWeighDate(new Date(2026, 8, 29)))`), '2026-10-12');
+  assert.equal(await ev(`pushConfig().weigh.everyWeeks`), 2);
+  assert.equal(await ev(`pushConfig().weigh.anchor`), '2026-09-28');
+  await ev(`state.weighEvery = 1`);
+  assert.equal(await ev(`keyOf(nextWeighDate(new Date(2026, 8, 29)))`), '2026-10-05');
 });

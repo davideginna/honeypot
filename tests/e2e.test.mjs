@@ -69,13 +69,25 @@ test('weight entry, check-in hides until next month', async () => {
   assert.ok(await ev(`!!document.querySelector('#ckForm')`), 'check-in form shown when due');
   await ev(`document.querySelector('#wKg').value = '97.4'; document.querySelector('#wForm').requestSubmit()`);
   assert.match(await page.text('.stat .v'), /97,4/);
-  await ev(`document.querySelector('#ckKg').value = '97.2'; document.querySelector('#ckWaist').value = '108'; document.querySelector('#ckForm').requestSubmit()`);
+  await ev(`document.querySelector('#ckKg').value = '97.2'; document.querySelector('#ckWaist').value = '108'; document.querySelector('#ckNeck').value = '43'; document.querySelector('#ckForm').requestSubmit()`);
   await page.waitFor(`!document.querySelector('#ckForm')`);
   assert.match(await page.text('.stat .v'), /97,2/, 'check-in weight becomes latest weight');
+  assert.ok(await ev(`Object.values(checkins)[0].fmEst && Object.values(checkins)[0].fm > 20`), 'fat mass estimated from waist+neck');
+  assert.match(await ev(`document.querySelector('.wlist small').textContent`), /stima/);
   await page.reload();
   assert.equal(await ev(`!!document.querySelector('#ckForm')`), false, 'stays closed after reload');
   await page.click('[data-tab=plan]');
   assert.equal(await page.count('.checkin'), 0, 'no check-in reminder in plan once done');
+});
+
+test('target weight shows remaining kg and a line on the chart', async () => {
+  await page.click('[data-tab=weight]');
+  await ev(`(el => { el.value = '85'; el.dispatchEvent(new Event('change', { bubbles: true })); })(document.querySelector('#goalKg'))`);
+  assert.equal(await ev(`state.goalKg`), 85);
+  assert.match(await page.text('.goal-card .big'), /Mancano 12,2 kg/);
+  assert.ok(await ev(`!!document.querySelector('#chWeight .goal-line')`), 'goal line on weight chart');
+  await page.reload();
+  assert.equal(await ev(`document.querySelector('#goalKg').value`), '85', 'persisted');
 });
 
 test('charts render', async () => {

@@ -161,3 +161,17 @@ test('half-open window (from, to]', () => {
   assert.deepEqual(dueReminders(weighOnly, at - 1, at - 1), []); // empty window
   assert.deepEqual(dueReminders(weighOnly, at + 1, at), []); // inverted window
 });
+
+test('weigh every 2 weeks from the anchor Monday', () => {
+  const cfg = {
+    timezone: 'Europe/Rome',
+    weigh: { enabled: true, day: 0, time: '08:00', everyWeeks: 2, anchor: '2026-09-28' },
+    water: { enabled: false }, checkin: { enabled: false },
+  };
+  const at = iso => dueReminders(cfg, Date.parse(iso) - 10 * 60e3, Date.parse(iso)).map(r => r.tag);
+  assert.deepEqual(at('2026-09-28T06:05:00Z'), ['weigh'], 'anchor week');
+  assert.deepEqual(at('2026-10-05T06:05:00Z'), [], 'skipped week');
+  assert.deepEqual(at('2026-10-12T06:05:00Z'), ['weigh'], 'two weeks later');
+  assert.deepEqual(at('2026-10-26T07:05:00Z'), ['weigh'], 'after DST end (08:00 CET = 07:00Z)');
+  assert.deepEqual(at('2026-09-14T06:05:00Z'), ['weigh'], 'weeks before the anchor too');
+});
