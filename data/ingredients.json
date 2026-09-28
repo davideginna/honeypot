@@ -1,0 +1,2342 @@
+{
+ "1 bicchiere di acqua e mezzo limone strizzato": [
+  {
+   "n": "Limone",
+   "q": 0.5,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "200 g di latte di soia con 3 fette biscottate di malto d'orzo con 20 g di marmellata di frutti rossi": [
+  {
+   "n": "Latte di soia",
+   "q": 200,
+   "u": "ml",
+   "c": "Bevande"
+  },
+  {
+   "n": "Fette biscottate integrali",
+   "q": 3,
+   "u": "pz",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Marmellata",
+   "q": 20,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "Carote filangè o sedano o cetriolo (100 g) e 1 yogurt magro bianco": [
+  {
+   "n": "Carote",
+   "q": 100,
+   "u": "g",
+   "c": "Frutta e verdura",
+   "alt": "o sedano o cetriolo"
+  },
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  }
+ ],
+ "Insalata di 90 g di pane o 60 g di farro o cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere": [
+  {
+   "n": "Pane integrale",
+   "q": 90,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o 60 g di farro o cous cous"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Grana",
+   "q": 20,
+   "u": "g",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Lattuga",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Miele",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa",
+   "alt": "o marmellata"
+  }
+ ],
+ "250 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone": [
+  {
+   "n": "Pesce bianco (platessa/sogliola/orata)",
+   "q": 250,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o lattuga"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "Yogurt greco con 5g di marmellata": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Marmellata",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "200 ml di yogurt greco con 200 g di frutta (ribes o mirtilli o banana) e 2 fette biscottate con marmellata ai frutti rossi": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 200,
+   "u": "ml",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Ribes",
+   "q": 200,
+   "u": "g",
+   "c": "Frutta e verdura",
+   "alt": "o mirtilli o banana"
+  },
+  {
+   "n": "Fette biscottate integrali",
+   "q": 2,
+   "u": "pz",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "1 yogurt magro bianco con 1 banana piccola": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Banana",
+   "q": 1,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "Frittata al pomodoro e grana (1 uovo e fino a 4 albumi, 10 g di grana) e bieta con carote a volontà puoi unire salsa di senape (5g))": [
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 4,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Bieta",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Senape",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "10 arachidi non salati": [
+  {
+   "n": "Arachidi",
+   "q": 10,
+   "u": "pz",
+   "c": "Frutta secca"
+  }
+ ],
+ "150 g di sgombro al naturale con 150 g di fagiolini": [
+  {
+   "n": "Sgombro al naturale",
+   "q": 150,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Fagiolini",
+   "q": 150,
+   "u": "g",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "125 g infuso al mirtillo con 1/2 fette di pane di segale (50 g) e un velo di burro di arachidi o crema di cioccolato (proteica)": [
+  {
+   "n": "Infuso al mirtillo",
+   "q": 125,
+   "u": "ml",
+   "c": "Bevande"
+  },
+  {
+   "n": "Pane di segale",
+   "q": 50,
+   "u": "g",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Burro di arachidi",
+   "q": null,
+   "u": null,
+   "c": "Dispensa",
+   "alt": "o crema di cioccolato proteica"
+  }
+ ],
+ "30g di grana": [
+  {
+   "n": "Grana",
+   "q": 30,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "120 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere": [
+  {
+   "n": "Fagioli",
+   "q": 120,
+   "u": "g",
+   "c": "Legumi"
+  },
+  {
+   "n": "Tonno al naturale",
+   "q": 180,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "180 g di fesa di petto di tacchino anche affettato e 2 patate piccole con rucola a volontà": [
+  {
+   "n": "Fesa di tacchino",
+   "q": 180,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Patate",
+   "q": 2,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Rucola",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 o mezzo High Protein": [
+  {
+   "n": "High Protein (budino o drink)",
+   "q": 0.5,
+   "u": "pz",
+   "c": "Pronti e snack"
+  }
+ ],
+ "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Frutta di stagione",
+   "q": 100,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Fette biscottate integrali",
+   "q": 1,
+   "u": "pz",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "8 anacardi o 12 arachidi non salati": [
+  {
+   "n": "Anacardi",
+   "q": 8,
+   "u": "pz",
+   "c": "Frutta secca",
+   "alt": "o 12 arachidi"
+  }
+ ],
+ "220g di petto di pollo con carote e spolverata di 10g di grana": [
+  {
+   "n": "Petto di pollo",
+   "q": 220,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "Caprese di formaggio magro come Philadelphia proteico (130 g) o fiocchi di latte proteici (200 g) e pomodori freschi": [
+  {
+   "n": "Philadelphia proteico",
+   "q": 130,
+   "u": "g",
+   "c": "Latticini e uova",
+   "alt": "o 200 g di fiocchi di latte proteici"
+  },
+  {
+   "n": "Pomodori",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 yogurt magro bianco con 1 banana piccola (100 g)": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Banana",
+   "q": 1,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "Insalata di pasta o riso integrali 70 g con 100 g di cubetti di prosciutto cotto con verdure a volontà o altre verdure cotte e 10 g di aceto a condire": [
+  {
+   "n": "Pasta integrale",
+   "q": 70,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o riso integrale"
+  },
+  {
+   "n": "Prosciutto cotto",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Aceto",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "Insalata di verdure a piacere con 2 uova sode e fino a 4 albumi sodi, puoi condire con 10 g di senape in salsa": [
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Uova",
+   "q": 2,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 4,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Senape",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 o mezzo milk pro al cioccolato o vaniglia": [
+  {
+   "n": "Milk Pro (cioccolato o vaniglia)",
+   "q": 0.5,
+   "u": "pz",
+   "c": "Bevande"
+  }
+ ],
+ "200 g di latte di soia o 150 ml di latte di mandorla con 2 fette di pane integrale e marmellata ai frutti rossi": [
+  {
+   "n": "Latte di soia",
+   "q": 200,
+   "u": "ml",
+   "c": "Bevande",
+   "alt": "o 150 ml di latte di mandorla"
+  },
+  {
+   "n": "Pane integrale",
+   "q": 2,
+   "u": "pz",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "1 yogurt bianco magro con 1 cubetto di liquirizia (10 g)": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Liquirizia",
+   "q": 10,
+   "u": "g",
+   "c": "Pronti e snack"
+  }
+ ],
+ "220 g di merluzzo o nasello e verdure a piacere": [
+  {
+   "n": "Merluzzo",
+   "q": 220,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o nasello"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "200 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)": [
+  {
+   "n": "Salmone affumicato",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Zucchine",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Pane integrale",
+   "q": 50,
+   "u": "g",
+   "c": "Pane e cereali"
+  }
+ ],
+ "100 g di ricotta senza lattosio con granella di pistacchio (10 g o 6 pistacchi) e cioccolato fondente fuso o in scaglie ed 1 biscotto sbriciolato a piacere tuo": [
+  {
+   "n": "Ricotta senza lattosio",
+   "q": 100,
+   "u": "g",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Pistacchi",
+   "q": 10,
+   "u": "g",
+   "c": "Frutta secca"
+  },
+  {
+   "n": "Cioccolato fondente",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Biscotti",
+   "q": 1,
+   "u": "pz",
+   "c": "Pane e cereali"
+  }
+ ],
+ "1 frutto piccolo poco prima di pranzo (30 min prima)": [
+  {
+   "n": "Frutta di stagione",
+   "q": 1,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "130 g di bresaola e verdure a piacere": [
+  {
+   "n": "Bresaola",
+   "q": 130,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 pacco di pavesini e 4 mandorle": [
+  {
+   "n": "Pavesini",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  },
+  {
+   "n": "Mandorle",
+   "q": 4,
+   "u": "pz",
+   "c": "Frutta secca"
+  }
+ ],
+ "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure": [
+  {
+   "n": "Pizza margherita (o piadina integrale)",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  }
+ ],
+ "150 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone": [
+  {
+   "n": "Pesce bianco (platessa/sogliola/orata)",
+   "q": 150,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o lattuga"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). valeriana o rucola con passata di pomodoro (almeno 100 g). frittata di cipolle a piacere (1 uovo e più albumi)": [
+  {
+   "n": "Fagiolini",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Menta",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Prezzemolo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o rucola"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": 100,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Cipolle",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": null,
+   "u": null,
+   "c": "Latticini e uova"
+  }
+ ],
+ "150 g di petto di pollo con carote (anche cotte spolverate di 10 g di grana (no olio))": [
+  {
+   "n": "Petto di pollo",
+   "q": 150,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);": [
+  {
+   "n": "Fagiolini",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Menta",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Prezzemolo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Funghi",
+   "q": 100,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Fesa di tacchino",
+   "q": 50,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Philadelphia proteico",
+   "q": 50,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "20 g di grana": [
+  {
+   "n": "Grana",
+   "q": 20,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g)": [
+  {
+   "n": "Fagiolini",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Menta",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Prezzemolo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Funghi",
+   "q": 100,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Fesa di tacchino",
+   "q": 50,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Philadelphia proteico",
+   "q": 50,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "180 g di merluzzo o nasello e verdure a piacere": [
+  {
+   "n": "Merluzzo",
+   "q": 180,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o nasello"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "100 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)": [
+  {
+   "n": "Salmone affumicato",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Zucchine",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Pane integrale",
+   "q": 50,
+   "u": "g",
+   "c": "Pane e cereali"
+  }
+ ],
+ "100 g di bresaola e verdure a piacere": [
+  {
+   "n": "Bresaola",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "80ml succo arancia rossa e 6 castagne e 1 yogurt magro bianco con marmellata di arancia": [
+  {
+   "n": "Succo di arancia rossa",
+   "q": 80,
+   "u": "ml",
+   "c": "Bevande"
+  },
+  {
+   "n": "Castagne",
+   "q": 6,
+   "u": "pz",
+   "c": "Frutta secca"
+  },
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "60g cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere": [
+  {
+   "n": "Cous cous",
+   "q": 60,
+   "u": "g",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Grana",
+   "q": 20,
+   "u": "g",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Lattuga",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "100 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone": [
+  {
+   "n": "Pesce bianco (platessa/sogliola/orata)",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o lattuga"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "100 g di petto di pollo con carote (anche cotte spolverate di 10 g di grana (no olio))": [
+  {
+   "n": "Petto di pollo",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere": [
+  {
+   "n": "Fagioli",
+   "q": 100,
+   "u": "g",
+   "c": "Legumi"
+  },
+  {
+   "n": "Tonno al naturale",
+   "q": 180,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "100 g di merluzzo o nasello e verdure a piacere": [
+  {
+   "n": "Merluzzo",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o nasello"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 125,
+   "u": "ml",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Fette biscottate integrali",
+   "q": 2,
+   "u": "pz",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "1 yogurt bianco con 1 cucchiaino di marmellata": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Marmellata",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone": [
+  {
+   "n": "Pesce bianco (platessa/sogliola/orata)",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o lattuga"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "vellutata di zucca e porri, olio a crudo": [
+  {
+   "n": "Zucca",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Porri",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "Frittata con fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g)": [
+  {
+   "n": "Uova",
+   "q": null,
+   "u": null,
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Fagiolini",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Menta",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Prezzemolo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Funghi",
+   "q": 100,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Fesa di tacchino",
+   "q": 50,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Philadelphia proteico",
+   "q": 50,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "crema di finocchi o finocchi cotti a piacere;\ncrema di carote o carote cotte a piacere;\n225 ml di latte e 5 g di cannella oppure 1 yogurt bianco circa 220 g con 5 g di cannella e 10 g di cioccolato fondente.": [
+  {
+   "n": "Finocchi",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Latte",
+   "q": 225,
+   "u": "ml",
+   "c": "Latticini e uova",
+   "alt": "oppure 1 yogurt bianco 220 g + 10 g cioccolato fondente"
+  },
+  {
+   "n": "Spezie",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "vellutata di zucca e porri (puoi addensare con barbabietola), olio a crudo": [
+  {
+   "n": "Zucca",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Porri",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Barbabietola",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "150 g di sgombro al naturale con 280 g di carote e 10 g di grana": [
+  {
+   "n": "Sgombro al naturale",
+   "q": 150,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Carote",
+   "q": 280,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "100 g di petto di pollo con lattughino e 10 g di grana (no olio))": [
+  {
+   "n": "Petto di pollo",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Lattuga",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "friarielli a volontà con 120 g di funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);": [
+  {
+   "n": "Friarielli",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Funghi",
+   "q": 120,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Prezzemolo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Fesa di tacchino",
+   "q": 50,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Philadelphia proteico",
+   "q": 50,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con valeriana e cipolla bianca": [
+  {
+   "n": "Fagioli",
+   "q": 100,
+   "u": "g",
+   "c": "Legumi"
+  },
+  {
+   "n": "Tonno al naturale",
+   "q": 180,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Cipolle",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "frittata con zucchine e erbe di campo o friarielli o spinaci con 5 g di zenzero in polvere": [
+  {
+   "n": "Uova",
+   "q": null,
+   "u": null,
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Zucchine",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Erbe di campo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o friarielli o spinaci"
+  },
+  {
+   "n": "Spezie",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  }
+ ],
+ "Insalata di verdure a piacere con 2 uova sode e fino a 6 albumi sodi, puoi condire con 10 g di senape in salsa": [
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Uova",
+   "q": 2,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 6,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Senape",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "uovo fino a 6 albumi o frittata di cipolla (rosse) e carote cotte a piacere": [
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 6,
+   "u": "pz",
+   "c": "Latticini e uova",
+   "alt": "o frittata di cipolle rosse"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "200 g di salmone affumicato e zucchine o valeriana e cipolla bianca a piacere con 2 fettine di pane integrale (circa 50 g)": [
+  {
+   "n": "Salmone affumicato",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Zucchine",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o valeriana e cipolla bianca"
+  },
+  {
+   "n": "Pane integrale",
+   "q": 50,
+   "u": "g",
+   "c": "Pane e cereali"
+  }
+ ],
+ "160 g di finocchi o funghi con 20 g di grana;\ncarote, peperoni o altre verdure color arancio rosso (1 mandarino in cottura con le verdure).\n1 o 2 yogurt greco o kefir con 10 g di miele o 1 o 2 budino proteico.": [
+  {
+   "n": "Finocchi",
+   "q": 160,
+   "u": "g",
+   "c": "Frutta e verdura",
+   "alt": "o funghi"
+  },
+  {
+   "n": "Grana",
+   "q": 20,
+   "u": "g",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Peperoni",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Mandarino",
+   "q": 1,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova",
+   "alt": "o kefir o budino proteico"
+  },
+  {
+   "n": "Miele",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "vellutata di finocchi e porri (puoi addensare con barbabietola), olio a crudo": [
+  {
+   "n": "Finocchi",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Porri",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Barbabietola",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "150 g di tonno al naturale ed 1 yogurt greco bianco con 10 g di miele": [
+  {
+   "n": "Tonno al naturale",
+   "q": 150,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Miele",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 frittata di albumi con passata di pomodoro e grana 10 g": [
+  {
+   "n": "Albumi",
+   "q": null,
+   "u": null,
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "125 ml di yogurt greco con 2 cucchiai rasi di burro di arachidi": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 125,
+   "u": "ml",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Burro di arachidi",
+   "q": 20,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "200 g di asparagi con 10 g di spezie (mix a piacere) con 90 g di sgombro al naturale": [
+  {
+   "n": "Asparagi",
+   "q": 200,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Spezie",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Sgombro al naturale",
+   "q": 90,
+   "u": "g",
+   "c": "Carne e pesce"
+  }
+ ],
+ "vellutata di asparagi con 150 g di tonno al naturale": [
+  {
+   "n": "Asparagi",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Tonno al naturale",
+   "q": 150,
+   "u": "g",
+   "c": "Carne e pesce"
+  }
+ ],
+ "100 ml di succo mirtillo puro preferibilmente, 1 kiwi o 110 g di mela, 10 g di cacao amaro, 5 g di stevia o eritriolo, 200 ml di latte di soia o 220 g di yogurt greco bianco": [
+  {
+   "n": "Succo di mirtillo",
+   "q": 100,
+   "u": "ml",
+   "c": "Bevande"
+  },
+  {
+   "n": "Kiwi",
+   "q": 1,
+   "u": "pz",
+   "c": "Frutta e verdura",
+   "alt": "o 110 g di mela"
+  },
+  {
+   "n": "Cacao amaro",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Stevia",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa",
+   "alt": "o eritritolo"
+  },
+  {
+   "n": "Latte di soia",
+   "q": 200,
+   "u": "ml",
+   "c": "Bevande",
+   "alt": "o 220 g di yogurt greco bianco"
+  }
+ ],
+ "1 yogurt greco 0 % fage con 10 g di cacao amaro e 5 g di stevia": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Cacao amaro",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Stevia",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "200 g di tonno al naturale o 120 g di bresaola con 80 g di valeriana e limone o 2 barrette enervit proteica 20 g con 0,1 g di zucchero al doppio cioccolato con 120 g di valeriana e limone": [
+  {
+   "n": "Tonno al naturale",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o 120 g di bresaola o 2 barrette proteiche"
+  },
+  {
+   "n": "Valeriana",
+   "q": 80,
+   "u": "g",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 yogurt bianco magro con 1 cucchiaio di cacao amaro e 5 g di stevia": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Cacao amaro",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Stevia",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 uovo e minestrone di verdure": [
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Minestrone di verdure",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "acqua e limone": [
+  {
+   "n": "Limone",
+   "q": 0.5,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "60 g di pane integrale o di segale con marmellata senza zucchero e 50g philadelphia proteica ed 1 tisana o tè": [
+  {
+   "n": "Pane integrale",
+   "q": 60,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o di segale"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Philadelphia proteico",
+   "q": 50,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "1 yogurt bianco greco con 5 mandorle ed 1 frutto piccolo (110 g di mela) o una barretta sotto 150Kcal": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Mandorle",
+   "q": 5,
+   "u": "pz",
+   "c": "Frutta secca"
+  },
+  {
+   "n": "Mela",
+   "q": 110,
+   "u": "g",
+   "c": "Frutta e verdura",
+   "alt": "o barretta sotto 150 kcal"
+  }
+ ],
+ "60 g di farro o 100 g di pane integrale o 100 g di piselli (peso cotti) con 200 g di tonno al naturale con limone con carote cotte al forno o crude e 10 g di grana spolverato (no olio)": [
+  {
+   "n": "Farro",
+   "q": 60,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o 100 g di pane integrale o 100 g di piselli"
+  },
+  {
+   "n": "Tonno al naturale",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "yogurt bianco con marmellata e 3 noci": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Marmellata",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Noci",
+   "q": 3,
+   "u": "pz",
+   "c": "Frutta secca"
+  }
+ ],
+ "2 o 3 uova (sode o anche a frittata, no olio in cottura) con verdure miste e 10 g di grana e caponata di verdure (peperoni, zucchine e melanzane)": [
+  {
+   "n": "Uova",
+   "q": 2,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Peperoni",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Zucchine",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Melanzane",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "Tisana o infuso": [],
+ "Yogurt bianco con 40 g di muslei senza zucchero 30 g di burro di arachidi": [
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Muesli senza zucchero",
+   "q": 40,
+   "u": "g",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Burro di arachidi",
+   "q": 30,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 BARRETTA SOTTO LE 100 Kcal": [
+  {
+   "n": "Barretta proteica",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  }
+ ],
+ "200 g di petto di pollo o tacchino e verdure": [
+  {
+   "n": "Petto di pollo",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o tacchino"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "8 arachidi non salati": [
+  {
+   "n": "Arachidi",
+   "q": 8,
+   "u": "pz",
+   "c": "Frutta secca"
+  }
+ ],
+ "Insalatona di verdure con passata di pomodoro (almeno 30 g), 100 g di cubetti di prosciutto cotto e spicchi di ananas o altra frutta a piacere (100 g), (puoi sostituire la frutta con 1 wasa di segale)": [
+  {
+   "n": "Verdure miste di stagione",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": 30,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Prosciutto cotto",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Ananas",
+   "q": 100,
+   "u": "g",
+   "c": "Frutta e verdura",
+   "alt": "o altra frutta o 1 wasa di segale"
+  }
+ ],
+ "8 g cioccolato fondente": [
+  {
+   "n": "Cioccolato fondente",
+   "q": 8,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 pudding al cioccolato o vaniglia (e' budino al cioccolato!!) con 2 o 3 fette biscottate integrali e marmellata (30 g) oppure tè o tisana con 60 g di pane integrale e 50 g di prosciutto cotto o fesa di tacchino con valeriana e/o passata di pomodoro": [
+  {
+   "n": "Budino proteico",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  },
+  {
+   "n": "Fette biscottate integrali",
+   "q": 2,
+   "u": "pz",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Marmellata",
+   "q": 30,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "12 mandorle": [
+  {
+   "n": "Mandorle",
+   "q": 12,
+   "u": "pz",
+   "c": "Frutta secca"
+  }
+ ],
+ "Insalata di cetrioli e peperoni con cubetti di feta (100 g) oppure 120 g di philadelphia protein ed aceto balsamico con crostini di pane integrale (anche tostati), 30 g": [
+  {
+   "n": "Cetrioli",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Peperoni",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Feta",
+   "q": 100,
+   "u": "g",
+   "c": "Latticini e uova",
+   "alt": "o 120 g di philadelphia protein"
+  },
+  {
+   "n": "Aceto balsamico",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Pane integrale",
+   "q": 30,
+   "u": "g",
+   "c": "Pane e cereali"
+  }
+ ],
+ "PORRIDGE salato (mischia semi di chia e semi di zucca frullati con 1 yogurt greco e carote filangè tagliate aggiungi latte di soia 100 ml e lascia raffreddare in frigo mangia in un bicchiere con aggiunta di semi di zucca interi)": [
+  {
+   "n": "Semi di chia",
+   "q": null,
+   "u": null,
+   "c": "Frutta secca"
+  },
+  {
+   "n": "Semi di zucca",
+   "q": null,
+   "u": null,
+   "c": "Frutta secca"
+  },
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Latte di soia",
+   "q": 100,
+   "u": "ml",
+   "c": "Bevande"
+  }
+ ],
+ "250 g di pesce (platessa o sogliola o merluzzo o orata o pesce spada) con valeriana a volontà": [
+  {
+   "n": "Pesce bianco (platessa/sogliola/orata)",
+   "q": 250,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o merluzzo"
+  },
+  {
+   "n": "Valeriana",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 pudding proteico": [
+  {
+   "n": "Budino proteico",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  }
+ ],
+ "1 yogurt greco bianco": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  }
+ ],
+ "1 Skyr bianco con 15 g di marmellata": [
+  {
+   "n": "Skyr bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Marmellata",
+   "q": 15,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 uovo e 2 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 2 albumi) e carote cotte a bastoncino con 10 g di grana spolverato": [
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 2,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Erbe di campo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o frittata di zucchine"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "6 noci": [
+  {
+   "n": "Noci",
+   "q": 6,
+   "u": "pz",
+   "c": "Frutta secca"
+  }
+ ],
+ "1 crostone integrale (70 g) con passata di pomodoro e 150 g di philadelphia protein o 100 g di fiocchi di formaggio magro senza lattosio (es. exquisa ecc) con pomodorini freschi pachino (oppure finocchi o cicoria o peperoni), (puoi sostituire il crostone con 1 o 2 wasa di segale)": [
+  {
+   "n": "Pane integrale",
+   "q": 70,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o 1-2 wasa di segale"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Philadelphia proteico",
+   "q": 150,
+   "u": "g",
+   "c": "Latticini e uova",
+   "alt": "o 100 g di fiocchi di formaggio magro"
+  },
+  {
+   "n": "Pomodori",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o finocchi o cicoria o peperoni"
+  }
+ ],
+ "1 yogurt greco con 10 g di miele e 10 g di cioccolato anche fuso o pudding proteico": [
+  {
+   "n": "Yogurt greco bianco",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Miele",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Cioccolato fondente",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa",
+   "alt": "o budino proteico"
+  }
+ ],
+ "1 yogurt di soia con 1 banana o 1 kiwi e cioccolato fuso (20 g) o cacao amaro in polvere (10 g), 1 spremuta di frutta senza zuccheri (50 – 90 ml)": [
+  {
+   "n": "Yogurt di soia",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Banana",
+   "q": 1,
+   "u": "pz",
+   "c": "Frutta e verdura",
+   "alt": "o 1 kiwi"
+  },
+  {
+   "n": "Cioccolato fondente",
+   "q": 20,
+   "u": "g",
+   "c": "Dispensa",
+   "alt": "o 10 g di cacao amaro"
+  },
+  {
+   "n": "Spremuta di frutta",
+   "q": 50,
+   "u": "ml",
+   "c": "Bevande"
+  }
+ ],
+ "6 noci o 1 budino alla vaniglia": [
+  {
+   "n": "Noci",
+   "q": 6,
+   "u": "pz",
+   "c": "Frutta secca",
+   "alt": "o 1 budino alla vaniglia"
+  }
+ ],
+ "60 g di pasta integrale puoi sostituire la pasta con o 120 g di piselli (peso cotti) o 90 g di pasta legumi) condita con 100 g di cubetti di prosciutto cotto e spinaci o finocchi o zucchine al forno oppure 290 g di fagiolini con 100 g di ricotta (preferibilmente senza lattosio) oppure 100 g di prosciutto cotto con 290 g di fagiolini alla menta (in questo pasto prova a condire solo con 20 g di aceto o limone o passata di pomodoro)": [
+  {
+   "n": "Pasta integrale",
+   "q": 60,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o 120 g di piselli o 90 g di pasta di legumi"
+  },
+  {
+   "n": "Prosciutto cotto",
+   "q": 100,
+   "u": "g",
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Spinaci",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o finocchi o zucchine"
+  },
+  {
+   "n": "Aceto",
+   "q": 20,
+   "u": "g",
+   "c": "Dispensa",
+   "alt": "o limone o passata"
+  }
+ ],
+ "1 o 2 fette fini di affettato (bresaola/salmone /affettato vegetale) con 2 fette di pane di segale (50 g) o 1 wasa di segale": [
+  {
+   "n": "Bresaola",
+   "q": 1,
+   "u": "pz",
+   "c": "Carne e pesce",
+   "alt": "o salmone o affettato vegetale"
+  },
+  {
+   "n": "Pane di segale",
+   "q": 50,
+   "u": "g",
+   "c": "Pane e cereali",
+   "alt": "o 1 wasa di segale"
+  }
+ ],
+ "1 uovo e 3-4 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 3-4 albumi) e carote cotte o crude a bastoncino con 10 g di grana spolverato": [
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 3,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Passata di pomodoro",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Erbe di campo",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura",
+   "alt": "o frittata di zucchine"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Grana",
+   "q": 10,
+   "u": "g",
+   "c": "Latticini e uova"
+  }
+ ],
+ "210 ml di succo di arancia rossa o ananas con 2 o 3 fette biscottate integrali (puoi sostituire con 45 g di pane integrale) e 28 g di burro di arachidi oppure tè o tisana con 40 g di pane integrale e 40 g di philadelphia protein con pomodorini crudi e lattughino": [
+  {
+   "n": "Succo di arancia rossa",
+   "q": 210,
+   "u": "ml",
+   "c": "Bevande",
+   "alt": "o ananas"
+  },
+  {
+   "n": "Fette biscottate integrali",
+   "q": 2,
+   "u": "pz",
+   "c": "Pane e cereali",
+   "alt": "o 45 g di pane integrale"
+  },
+  {
+   "n": "Burro di arachidi",
+   "q": 28,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "1 fettina di pane (30 g) con 1 cucchiaio raso di burro di arachidi (10 g)": [
+  {
+   "n": "Pane integrale",
+   "q": 30,
+   "u": "g",
+   "c": "Pane e cereali"
+  },
+  {
+   "n": "Burro di arachidi",
+   "q": 10,
+   "u": "g",
+   "c": "Dispensa"
+  }
+ ],
+ "Pomodori ripieni di pesce al forno (200 g di merluzzo o nasello o 250 g di sogliola a straccetti e spolverata di spezie) con insalata di carote filangè, ravanelli e cipolle e/o cetrioli, puoi assumere solo pesce e verdure o 250 g di carne di manzo o vitello (massimo 2 volte al mese) impanati con 10 g di fiocchi d’avena e verdure": [
+  {
+   "n": "Merluzzo",
+   "q": 200,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o nasello o 250 g di sogliola"
+  },
+  {
+   "n": "Pomodori",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Spezie",
+   "q": null,
+   "u": null,
+   "c": "Dispensa"
+  },
+  {
+   "n": "Carote",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Ravanelli",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Cipolle",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Cetrioli",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 barretta proteica sotto le 150 Kcal": [
+  {
+   "n": "Barretta proteica",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  }
+ ],
+ "Sgombro e 180gr di verdure": [
+  {
+   "n": "Sgombro al naturale",
+   "q": null,
+   "u": null,
+   "c": "Carne e pesce"
+  },
+  {
+   "n": "Verdure miste di stagione",
+   "q": 180,
+   "u": "g",
+   "c": "Frutta e verdura"
+  }
+ ],
+ "125 ml succo di ananas 100 % con 1 pancake ( 1 uovo sbattuto (fino a 4 albumi) con mezza mela e un cucchiaino di marmellata ai frutti rossi) con uno strato di burro di arachidi fine o marmellata senza zucchero": [
+  {
+   "n": "Succo di ananas",
+   "q": 125,
+   "u": "ml",
+   "c": "Bevande"
+  },
+  {
+   "n": "Uova",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Albumi",
+   "q": 4,
+   "u": "pz",
+   "c": "Latticini e uova"
+  },
+  {
+   "n": "Mela",
+   "q": 0.5,
+   "u": "pz",
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Marmellata",
+   "q": 5,
+   "u": "g",
+   "c": "Dispensa"
+  },
+  {
+   "n": "Burro di arachidi",
+   "q": null,
+   "u": null,
+   "c": "Dispensa",
+   "alt": "o marmellata senza zucchero"
+  }
+ ],
+ "180 g di bresaola di tacchino oppure 200 g di fesa di tacchino e foglie di spinaci ad insalata con limone": [
+  {
+   "n": "Bresaola di tacchino",
+   "q": 180,
+   "u": "g",
+   "c": "Carne e pesce",
+   "alt": "o 200 g di fesa di tacchino"
+  },
+  {
+   "n": "Spinaci",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  },
+  {
+   "n": "Limone",
+   "q": null,
+   "u": null,
+   "c": "Frutta e verdura"
+  }
+ ],
+ "1 pacco di pavesini ed 1 yogurt bianco magro": [
+  {
+   "n": "Pavesini",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  },
+  {
+   "n": "Yogurt bianco magro",
+   "q": 1,
+   "u": "pz",
+   "c": "Latticini e uova"
+  }
+ ],
+ "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con contorno di verdure": [
+  {
+   "n": "Pizza margherita (o piadina integrale)",
+   "q": 1,
+   "u": "pz",
+   "c": "Pronti e snack"
+  }
+ ]
+}

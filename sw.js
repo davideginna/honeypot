@@ -1,6 +1,6 @@
-const CACHE = 'dieta-v1';
+const CACHE = 'dieta-v2';
 const ASSETS = [
-  './', 'index.html', 'app.css', 'app.js', 'manifest.webmanifest', 'data/diet.json',
+  './', 'index.html', 'app.css', 'app.js', 'manifest.webmanifest', 'data/diet.json', 'data/ingredients.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png',
 ];
 

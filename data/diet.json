@@ -12,7 +12,7 @@
  "phases": [
   {
    "id": "inizio",
-   "label": "Settembre 2023 · originale",
+   "label": "Settembre (versione originale)",
    "rules": "rules2023",
    "days": [
     {
@@ -596,7 +596,7 @@
   },
   {
    "id": "giugno",
-   "label": "Giugno · rivisto",
+   "label": "Giugno",
    "rules": "rules2024",
    "days": [
     {
@@ -628,7 +628,7 @@
     },
     {
      "sveglia": "acqua e limone",
-     "colazione": "Yogurt greco (tua nota: «FAI LO YOGURT GRECO»)",
+     "colazione": "1 yogurt greco bianco",
      "spuntino": "1 Skyr bianco con 15 g di marmellata",
      "pranzo": "1 uovo e 2 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 2 albumi) e carote cotte a bastoncino con 10 g di grana spolverato",
      "merenda": "6 noci",
@@ -647,75 +647,6 @@
     {
      "sveglia": "acqua e limone",
      "colazione": "210 ml di succo di arancia rossa o ananas con 2 o 3 fette biscottate integrali (puoi sostituire con 45 g di pane integrale) e 28 g di burro di arachidi oppure tè o tisana con 40 g di pane integrale e 40 g di philadelphia protein con pomodorini crudi e lattughino",
-     "spuntino": "1 fettina di pane (30 g) con 1 cucchiaio raso di burro di arachidi (10 g)",
-     "pranzo": "Pomodori ripieni di pesce al forno (200 g di merluzzo o nasello o 250 g di sogliola a straccetti e spolverata di spezie) con insalata di carote filangè, ravanelli e cipolle e/o cetrioli, puoi assumere solo pesce e verdure o 250 g di carne di manzo o vitello (massimo 2 volte al mese) impanati con 10 g di fiocchi d’avena e verdure",
-     "merenda": "1 barretta proteica sotto le 150 Kcal",
-     "cena": "Sgombro e 180gr di verdure"
-    },
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "125 ml succo di ananas 100 % con 1 pancake ( 1 uovo sbattuto (fino a 4 albumi) con mezza mela e un cucchiaino di marmellata ai frutti rossi) con uno strato di burro di arachidi fine o marmellata senza zucchero",
-     "spuntino": "1 frutto piccolo poco prima di pranzo (30 min prima)",
-     "pranzo": "180 g di bresaola di tacchino oppure 200 g di fesa di tacchino e foglie di spinaci ad insalata con limone",
-     "merenda": "1 pacco di pavesini ed 1 yogurt bianco magro",
-     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con contorno di verdure",
-     "sera": "Tisana o infuso"
-    }
-   ]
-  },
-  {
-   "id": "giugno-orig",
-   "label": "Giugno · originale",
-   "rules": "rules2024",
-   "days": [
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "60 g di pane integrale o di segale con marmellata senza zucchero e 50g philadelphia proteica ed 1 tisana o tè",
-     "spuntino": "1 yogurt bianco greco con 5 mandorle ed 1 frutto piccolo (110 g di mela) o una barretta sotto 150Kcal",
-     "pranzo": "60 g di farro o 100 g di pane integrale o 100 g di piselli (peso cotti) con 200 g di tonno al naturale con limone con carote cotte al forno o crude e 10 g di grana spolverato (no olio)",
-     "merenda": "yogurt bianco con marmellata e 3 noci",
-     "cena": "2 o 3 uova (sode o anche a frittata, no olio in cottura) con verdure miste e 10 g di grana e caponata di verdure (peperoni, zucchine e melanzane)",
-     "sera": "Tisana o infuso"
-    },
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "Yogurt bianco con 40 g di muslei senza zucchero 30 g di burro di arachidi",
-     "spuntino": "20 g di ricotta con 5 g di miele e 1 o 2 fette biscottate integrali sbriciolata",
-     "pranzo": "200 g di petto di pollo o tacchino e verdure",
-     "merenda": "6 mandorle ed 1 yogurt greco bianco con 10 g di miele o crema novi (8 g)",
-     "cena": "Salmone (200 g se naturale e 130 g se affumicato) con 200 g di fagiolini conditi con passata di pomodoro e 1 o 2 wasa di segale",
-     "sera": "8 g cioccolato fondente"
-    },
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "1 pudding al cioccolato o vaniglia con 2 o 3 fette biscottate integrali e marmellata (30 g) oppure tè o tisana con 60 g di pane integrale e 50 g di prosciutto cotto o fesa di tacchino con valeriana e/o passata di pomodoro",
-     "spuntino": "12 mandorle",
-     "pranzo": "60 g riso integrale o 50 g di cous cous con 150 g di gamberetti o 200 g di salmone al naturale (120 g se affumicato) e zucchine o cavolo cappuccio crudo ad insalata o lattughino a volontà",
-     "merenda": "Pudding salato (mischia semi di chia e semi di zucca frullati con 1 yogurt greco e carote filangè tagliate aggiungi latte di soia 100 ml e lascia raffreddare in frigo mangia in un bicchiere con aggiunta di semi di zucca interi)",
-     "cena": "250 g di pesce (platessa o sogliola o merluzzo o orata o pesce spada) con valeriana a volontà",
-     "sera": "1 pudding proteico"
-    },
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "125 g di caffè latte (anche avena o mandorla o senza lattosio) con 6-7 biscotti (oro saiwa ai 5 cereali o fibre) o 5 frollini da colazione integrali (puoi sostituire i frollini con 30 – 40 g di muslei o cereali senza zucchero)",
-     "spuntino": "1 Skyr bianco con 15 g di marmellata",
-     "pranzo": "Insalatona di pesce (220 g di polpo e 90 g di piselli o 320 g di sogliola e 120 g di piselli) con insalata di verdure cruditè (sedano, carote, cipolle)",
-     "merenda": "6 noci",
-     "cena": "1 crostone integrale (70 g) con passata di pomodoro e 150 g di philadelphia protein o 100 g di fiocchi di formaggio magro senza lattosio (es. exquisa ecc) con pomodorini freschi pachino (oppure finocchi o cicoria o peperoni), (puoi sostituire il crostone con 1 o 2 wasa di segale)",
-     "sera": "1 yogurt greco con 10 g di miele e 10 g di cioccolato anche fuso o pudding proteico"
-    },
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "1 tazza di latte di mandorle con 2 o 3 fette biscottate integrali con un velo di marmellata (preferibilmente Hero) e 10 g di cioccolato fondente",
-     "spuntino": "6 noci o 1 budino alla vaniglia",
-     "pranzo": "60 g di pasta integrale puoi sostituire la pasta con o 120 g di piselli (peso cotti) o 90 g di pasta legumi) condita con 100 g di cubetti di prosciutto cotto e spinaci o finocchi o zucchine al forno oppure 290 g di fagiolini con 100 g di ricotta (preferibilmente senza lattosio) oppure 100 g di prosciutto cotto con 290 g di fagiolini alla menta (in questo pasto prova a condire solo con 20 g di aceto o limone o passata di pomodoro)",
-     "merenda": "1 o 2 fette fini di affettato (bresaola/salmone /affettato vegetale) con 2 fette di pane di segale (50 g) o 1 wasa di segale",
-     "cena": "1 uovo e 3-4 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 3-4 albumi) e carote cotte o crude a bastoncino con 10 g di grana spolverato",
-     "sera": "8 g cioccolato fondente"
-    },
-    {
-     "sveglia": "acqua e limone",
-     "colazione": "210 ml di succo di arancia rossa o ananas con 2 o 3 fette biscottate integrali (puoi sostituire con 45 g di pane integrale) e 30 g di burro di arachidi oppure tè o tisana con 60 g di pane integrale e 60 g di philadelphia protein con pomodorini crudi e lattughino",
      "spuntino": "1 fettina di pane (30 g) con 1 cucchiaio raso di burro di arachidi (10 g)",
      "pranzo": "Pomodori ripieni di pesce al forno (200 g di merluzzo o nasello o 250 g di sogliola a straccetti e spolverata di spezie) con insalata di carote filangè, ravanelli e cipolle e/o cetrioli, puoi assumere solo pesce e verdure o 250 g di carne di manzo o vitello (massimo 2 volte al mese) impanati con 10 g di fiocchi d’avena e verdure",
      "merenda": "1 barretta proteica sotto le 150 Kcal",
@@ -810,6 +741,10 @@
     [
      "Acqua",
      "Circa 2 litri al giorno. Infusi/tisane: più al mattino, meno verso sera."
+    ],
+    [
+     "Pesata",
+     "Una volta a settimana, stesso giorno, al mattino a digiuno dopo il bagno, con la stessa bilancia."
     ]
    ]
   },
@@ -867,6 +802,10 @@
     [
      "Acqua",
      "Circa 2 litri al giorno. Infusi/tisane: più al mattino, meno verso sera."
+    ],
+    [
+     "Pesata",
+     "Una volta a settimana, stesso giorno, al mattino a digiuno dopo il bagno, con la stessa bilancia."
     ]
    ]
   }

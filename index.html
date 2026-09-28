@@ -16,10 +16,6 @@
   <header class="topbar">
     <div class="topbar-row">
       <h1 class="title" id="title">La mia dieta</h1>
-      <label class="phase-chip" title="Piano">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-        <select id="phaseSelect" aria-label="Piano alimentare"></select>
-      </label>
     </div>
     <div class="plan-controls" id="planControls">
       <div class="segmented" role="tablist" aria-label="Vista">
@@ -47,9 +43,17 @@
       <span class="ind"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.1 1.7 3.8 3.8 4v9h2.5v-9C11.3 12.8 13 11.1 13 9V2h-2zm5-3v8h2.5v8H21V2c-2.8 0-5 2.2-5 4"/></svg></span>
       <span>Piano</span>
     </button>
+    <button data-tab="shop">
+      <span class="ind"><svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4M1 2v2h2l3.6 7.6-1.4 2.4A2 2 0 0 0 7 17h12v-2H7.4a.3.3 0 0 1-.2-.4l.9-1.6h7.4a2 2 0 0 0 1.8-1l3.6-6.5A1 1 0 0 0 20 4H5.2l-.9-2zm16 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg></span>
+      <span>Spesa</span>
+    </button>
     <button data-tab="weight">
       <span class="ind"><svg viewBox="0 0 24 24"><path d="M3.5 18.5 9.5 12.5l4 4L22 6.9 20.6 5.5l-7.1 8-4-4L2 17z"/></svg></span>
       <span>Peso</span>
+    </button>
+    <button data-tab="goals">
+      <span class="ind"><svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5a2 2 0 0 0-2 2v1a5 5 0 0 0 4.4 5A5 5 0 0 0 11 15.9V19H7v2h10v-2h-4v-3.1a5 5 0 0 0 3.6-2.9A5 5 0 0 0 21 8V7a2 2 0 0 0-2-2M5 8V7h2v3.8A3 3 0 0 1 5 8m14 0a3 3 0 0 1-2 2.8V7h2z"/></svg></span>
+      <span>Traguardi</span>
     </button>
     <button data-tab="rules">
       <span class="ind"><svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8"/></svg></span>
