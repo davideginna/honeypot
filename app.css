@@ -403,9 +403,10 @@ details.rule[open] .chev { transform: rotate(180deg); }
   .shop-cat-wrap { columns: 2; }
 }
 @media (min-width: 1000px) {
-  .month-layout { display: grid; grid-template-columns: 380px 1fr; gap: 16px; align-items: start; }
+  .month-layout { display: grid; grid-template-columns: minmax(460px, 540px) 1fr; gap: 16px; align-items: start; }
   .month-layout .cal-card { position: sticky; top: 140px; }
-  .month-layout .cal button { font-size: 13px; }
+  .month-layout .cal button { font-size: 16px; }
+  .month-layout .cal { gap: 6px; }
   .month-layout > .card { margin-bottom: 0; }
-  .select-field { max-width: 380px; }
+  .select-field { max-width: 540px; }
 }
