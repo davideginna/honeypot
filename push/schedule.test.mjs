@@ -175,3 +175,15 @@ test('weigh every 2 weeks from the anchor Monday', () => {
   assert.deepEqual(at('2026-10-26T07:05:00Z'), ['weigh'], 'after DST end (08:00 CET = 07:00Z)');
   assert.deepEqual(at('2026-09-14T06:05:00Z'), ['weigh'], 'weeks before the anchor too');
 });
+
+test('invalid or empty times skip only that reminder', () => {
+  const cfg = {
+    timezone: 'Europe/Rome',
+    weigh: { enabled: true, day: 0, time: '08:00' },
+    water: { enabled: true, from: '', to: '21:00', everyMinutes: 90 },
+    checkin: { enabled: true, dayOfMonth: 1, time: 'xx' },
+  };
+  const at = iso => dueReminders(cfg, Date.parse(iso) - 10 * 60e3, Date.parse(iso)).map(r => r.tag);
+  assert.deepEqual(at('2026-09-28T06:05:00Z'), ['weigh'], 'weigh still fires with broken water/checkin times');
+  assert.deepEqual(at('2026-10-01T07:05:00Z'), [], 'broken checkin time: nothing, no throw');
+});

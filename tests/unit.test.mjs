@@ -155,3 +155,12 @@ test('saved override of a removed plan falls back to auto', async () => {
   await page.reload();
   assert.equal(await ev(`state.phase`), 'auto');
 });
+
+test('month calendar has only the rows it needs', async () => {
+  const rows = async (y, m) => ev(`(state.view = 'month', state.tab = 'plan', state.date = '${y}-${String(m).padStart(2, '0')}-10', render(),
+    document.querySelectorAll('.cal button').length / 7)`);
+  assert.equal(await rows(2027, 2), 4, 'Feb 2027 starts on Monday: 4 rows');
+  assert.equal(await rows(2026, 9), 5);
+  assert.equal(await rows(2026, 8), 6, 'Aug 2026 starts on Saturday: 6 rows');
+  await ev(`(state.view = 'day', state.date = keyOf(today()), render())`);
+});

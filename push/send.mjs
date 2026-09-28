@@ -40,7 +40,13 @@ const subs = Array.isArray(config.subscriptions)
   ? config.subscriptions.filter((s) => s && s.endpoint && s.keys?.p256dh && s.keys?.auth)
   : [];
 const lastRun = await readState();
-const due = dueReminders(config, lastRun, now);
+let due = [];
+try {
+  due = dueReminders(config, lastRun, now);
+} catch (err) {
+  // A malformed config must not fail every scheduled run.
+  console.log(`config error: ${err.message}`);
+}
 
 console.log(
   `window ${new Date(lastRun).toISOString()} → ${new Date(now).toISOString()}; ` +

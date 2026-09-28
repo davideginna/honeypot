@@ -1,4 +1,4 @@
-const CACHE = 'dieta-v11';
+const CACHE = 'dieta-v12';
 const ASSETS = [
   './', 'index.html', 'app.css', 'app.js', 'manifest.webmanifest', 'data/diet.json', 'data/ingredients.json',
   'icons/icon-any.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png',

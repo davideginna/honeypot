@@ -397,7 +397,7 @@ function monthView(date) {
   const first = new Date(date.getFullYear(), date.getMonth(), 1);
   const start = weekStart(first);
   const weighed = new Set(userWeights.map(w => w.d));
-  const used = addDays(start, 35).getMonth() !== date.getMonth() ? 35 : 42;
+  const used = Math.ceil((dow(first) + new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()) / 7) * 7;
   const cells = [...Array(used)].map((_, i) => {
     const d = addDays(start, i), k = keyOf(d);
     const cls = [d.getMonth() !== date.getMonth() && 'out', sameDay(d, t) && 'today', sameDay(d, date) && 'sel',
@@ -928,7 +928,7 @@ function bind() {
       e.preventDefault();
       const num = id => { const v = parseFloat(String($(id).value).replace(',', '.')); return Number.isFinite(v) ? v : null; };
       const d = $('#ckDate').value, kg = num('#ckKg');
-      if (!d || !(kg > 30 && kg < 250)) return snack('Controlla data e peso');
+      if (!d || !(kg >= 30 && kg <= 250)) return snack('Controlla data e peso');
       let fm = num('#ckFm'), fmEst = false;
       const waist = num('#ckWaist'), neck = num('#ckNeck');
       if (fm == null && waist && neck) {
@@ -946,7 +946,7 @@ function bind() {
     if (e.target.id !== 'wForm') return;
     e.preventDefault();
     const d = $('#wDate').value, kg = parseFloat(String($('#wKg').value).replace(',', '.'));
-    if (!d || !(kg > 30 && kg < 250)) return snack('Controlla data e peso');
+    if (!d || !(kg >= 30 && kg <= 250)) return snack('Controlla data e peso');
     userWeights = userWeights.filter(w => w.d !== d).concat({ d, kg: Math.round(kg * 10) / 10 });
     userWeights.sort((a, b) => a.d.localeCompare(b.d));
     save(WEIGHTS_KEY, userWeights);
@@ -961,7 +961,10 @@ function bind() {
       snack(state.phase === 'auto' ? 'Il piano segue il mese' : 'Piano fissato: ' + phaseFor(parseKey(state.date)).label);
       return;
     }
-    if (t.dataset.notif) { state.notif[t.dataset.notif] = t.value; persist(); return; }
+    if (t.dataset.notif) {
+      if (t.type === 'time' && !/^\d{2}:\d{2}$/.test(t.value)) { t.value = state.notif[t.dataset.notif]; snack('Scegli un orario'); return; }
+      state.notif[t.dataset.notif] = t.value; persist(); return;
+    }
     if (t.id === 'goalKg') {
       const v = parseFloat(String(t.value).replace(',', '.'));
       state.goalKg = v >= 40 && v <= 200 ? Math.round(v * 2) / 2 : null;

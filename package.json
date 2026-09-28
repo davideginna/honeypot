@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test --test-concurrency=1 tests/unit.test.mjs tests/e2e.test.mjs tests/desktop.test.mjs"
+    "test": "node --test --test-concurrency=1 tests/data.test.mjs tests/unit.test.mjs tests/e2e.test.mjs tests/desktop.test.mjs tests/features.test.mjs"
   }
 }

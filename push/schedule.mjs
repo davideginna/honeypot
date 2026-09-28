@@ -66,11 +66,12 @@ export function zonedToUtc(year, month, day, hour, minute, timeZone) {
   return ts;
 }
 
+// Returns minutes after midnight, or null for a missing/invalid "HH:MM" (that reminder is skipped).
 function parseTime(s) {
   const m = /^(\d{1,2}):(\d{2})$/.exec(String(s ?? '').trim());
-  if (!m) throw new Error(`Invalid time "${s}" (expected HH:MM)`);
+  if (!m) return null;
   const h = Number(m[1]), mi = Number(m[2]);
-  if (h > 23 || mi > 59) throw new Error(`Invalid time "${s}"`);
+  if (h > 23 || mi > 59) return null;
   return h * 60 + mi;
 }
 
@@ -114,7 +115,8 @@ export function dueReminders(config, fromMs, toMs) {
 
     const w = config?.weigh;
     if (w?.enabled && Number(w.day) === weekday && inWeighWeek(w, dayMs - weekday * DAY_MS)) {
-      const ts = at(y, m, d, parseTime(w.time));
+      const t = parseTime(w.time);
+      const ts = t == null ? NaN : at(y, m, d, t);
       if (inWindow(ts)) hits.weigh.push(ts);
     }
 
@@ -122,7 +124,7 @@ export function dueReminders(config, fromMs, toMs) {
     if (wa?.enabled) {
       const step = Number(wa.everyMinutes);
       const start = parseTime(wa.from), end = parseTime(wa.to);
-      if (step > 0) {
+      if (start != null && end != null && step > 0) {
         for (let t = start; t <= end; t += step) {
           const ts = at(y, m, d, t);
           if (inWindow(ts)) hits.water.push(ts);
@@ -134,7 +136,8 @@ export function dueReminders(config, fromMs, toMs) {
     if (c?.enabled) {
       const target = Math.min(Math.max(1, Math.floor(Number(c.dayOfMonth) || 1)), daysInMonth(y, m));
       if (d === target) {
-        const ts = at(y, m, d, parseTime(c.time));
+        const t = parseTime(c.time);
+        const ts = t == null ? NaN : at(y, m, d, t);
         if (inWindow(ts)) hits.checkin.push(ts);
       }
     }
