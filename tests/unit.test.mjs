@@ -140,3 +140,18 @@ test('weigh-in every 2 weeks', async () => {
   await ev(`state.weighEvery = 1`);
   assert.equal(await ev(`keyOf(nextWeighDate(new Date(2026, 8, 29)))`), '2026-10-05');
 });
+
+test('single September plan and no 2019 weight', async () => {
+  const labels = await ev(`DATA.phases.map(p => p.label)`);
+  assert.equal(labels.filter(l => /settembre/i.test(l)).length, 1, labels.join(', '));
+  assert.ok(labels.includes('Settembre'));
+  assert.equal(await ev(`DATA.phases.some(p => p.id === 'inizio')`), false);
+  assert.equal(await ev(`DATA.weights.some(([d]) => d < '2023-01-01')`), false, 'no pre-2023 weights');
+  assert.equal(await ev(`[...new Set(Object.values(DATA.monthMap))].every(id => DATA.phases.some(p => p.id === id))`), true, 'monthMap ids exist');
+});
+
+test('saved override of a removed plan falls back to auto', async () => {
+  await ev(`localStorage.setItem('dieta.state', JSON.stringify({ phase: 'inizio' }))`);
+  await page.reload();
+  assert.equal(await ev(`state.phase`), 'auto');
+});
