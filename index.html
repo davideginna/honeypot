@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>La mia dieta</title>
+  <meta name="description" content="Piano alimentare per giorno, settimana e mese, con diario del peso.">
+  <meta name="theme-color" content="#386A20" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11140F" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-row">
+      <h1 class="title" id="title">La mia dieta</h1>
+      <label class="phase-chip" title="Piano">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+        <select id="phaseSelect" aria-label="Piano alimentare"></select>
+      </label>
+    </div>
+    <div class="plan-controls" id="planControls">
+      <div class="segmented" role="tablist" aria-label="Vista">
+        <button role="tab" data-view="day">Giorno</button>
+        <button role="tab" data-view="week">Settimana</button>
+        <button role="tab" data-view="month">Mese</button>
+      </div>
+      <div class="navrow">
+        <button class="icon-btn" id="prevBtn" aria-label="Precedente">
+          <svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+        </button>
+        <div class="navlabel" id="navLabel"></div>
+        <button class="icon-btn" id="nextBtn" aria-label="Successivo">
+          <svg viewBox="0 0 24 24"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
+        </button>
+        <button class="tonal-btn" id="todayBtn">Oggi</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1"></main>
+
+  <nav class="navbar" aria-label="Sezioni">
+    <button data-tab="plan">
+      <span class="ind"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.1 1.7 3.8 3.8 4v9h2.5v-9C11.3 12.8 13 11.1 13 9V2h-2zm5-3v8h2.5v8H21V2c-2.8 0-5 2.2-5 4"/></svg></span>
+      <span>Piano</span>
+    </button>
+    <button data-tab="weight">
+      <span class="ind"><svg viewBox="0 0 24 24"><path d="M3.5 18.5 9.5 12.5l4 4L22 6.9 20.6 5.5l-7.1 8-4-4L2 17z"/></svg></span>
+      <span>Peso</span>
+    </button>
+    <button data-tab="rules">
+      <span class="ind"><svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8"/></svg></span>
+      <span>Regole</span>
+    </button>
+  </nav>
+
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

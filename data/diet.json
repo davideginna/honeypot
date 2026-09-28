@@ -1,0 +1,955 @@
+{
+ "slots": {
+  "sveglia": "Sveglia",
+  "colazione": "Colazione",
+  "spuntino": "Spuntino",
+  "pranzo": "Pranzo",
+  "merenda": "Merenda",
+  "cena": "Cena",
+  "sera": "Spuntino serale",
+  "veloce": "Pasto veloce (alternativa)"
+ },
+ "phases": [
+  {
+   "id": "inizio",
+   "label": "Settembre 2023 · originale",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 g di latte di soia con 3 fette biscottate di malto d'orzo con 20 g di marmellata di frutti rossi",
+     "spuntino": "Carote filangè o sedano o cetriolo (100 g) e 1 yogurt magro bianco",
+     "pranzo": "Insalata di 90 g di pane o 60 g di farro o cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "250 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
+     "sera": "Yogurt greco con 5g di marmellata"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 ml di yogurt greco con 200 g di frutta (ribes o mirtilli o banana) e 2 fette biscottate con marmellata ai frutti rossi",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "Frittata al pomodoro e grana (1 uovo e fino a 4 albumi, 10 g di grana) e bieta con carote a volontà puoi unire salsa di senape (5g))",
+     "merenda": "10 arachidi non salati",
+     "cena": "150 g di sgombro al naturale con 150 g di fagiolini",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 g infuso al mirtillo con 1/2 fette di pane di segale (50 g) e un velo di burro di arachidi o crema di cioccolato (proteica)",
+     "spuntino": "30g di grana",
+     "pranzo": "120 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "180 g di fesa di petto di tacchino anche affettato e 2 patate piccole con rucola a volontà",
+     "sera": "1 o mezzo High Protein"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
+     "spuntino": "8 anacardi o 12 arachidi non salati",
+     "pranzo": "220g di petto di pollo con carote e spolverata di 10g di grana",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "Caprese di formaggio magro come Philadelphia proteico (130 g) o fiocchi di latte proteici (200 g) e pomodori freschi"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola (100 g)",
+     "pranzo": "Insalata di pasta o riso integrali 70 g con 100 g di cubetti di prosciutto cotto con verdure a volontà o altre verdure cotte e 10 g di aceto a condire",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 4 albumi sodi, puoi condire con 10 g di senape in salsa",
+     "sera": "1 o mezzo milk pro al cioccolato o vaniglia",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 g di latte di soia o 150 ml di latte di mandorla con 2 fette di pane integrale e marmellata ai frutti rossi",
+     "spuntino": "1 yogurt bianco magro con 1 cubetto di liquirizia (10 g)",
+     "pranzo": "220 g di merluzzo o nasello e verdure a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "200 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "100 g di ricotta senza lattosio con granella di pistacchio (10 g o 6 pistacchi) e cioccolato fondente fuso o in scaglie ed 1 biscotto sbriciolato a piacere tuo",
+     "spuntino": "1 frutto piccolo poco prima di pranzo (30 min prima)",
+     "pranzo": "130 g di bresaola e verdure a piacere",
+     "merenda": "1 pacco di pavesini e 4 mandorle",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "settembre",
+   "label": "Settembre",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 g di latte di soia con 3 fette biscottate di malto d'orzo con 20 g di marmellata di frutti rossi",
+     "spuntino": "Carote filangè o sedano o cetriolo (100 g) e 1 yogurt magro bianco",
+     "pranzo": "Insalata di 90 g di pane o 60 g di farro o cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "150 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 ml di yogurt greco con 200 g di frutta (ribes o mirtilli o banana) e 2 fette biscottate con marmellata ai frutti rossi",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). valeriana o rucola con passata di pomodoro (almeno 100 g). frittata di cipolle a piacere (1 uovo e più albumi)",
+     "merenda": "10 arachidi non salati",
+     "cena": "150 g di sgombro al naturale con 150 g di fagiolini",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
+     "spuntino": "8 anacardi o 12 arachidi non salati",
+     "pranzo": "150 g di petto di pollo con carote (anche cotte spolverate di 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 g infuso al mirtillo con 1/2 fette di pane di segale (50 g) e un velo di burro di arachidi o crema di cioccolato (proteica)",
+     "spuntino": "20 g di grana",
+     "pranzo": "120 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola (100 g)",
+     "pranzo": "Insalata di pasta o riso integrali 70 g con 100 g di cubetti di prosciutto cotto con verdure a volontà o altre verdure cotte e 10 g di aceto a condire",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 4 albumi sodi, puoi condire con 10 g di senape in salsa",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 g di latte di soia o 150 ml di latte di mandorla con 2 fette di pane integrale e marmellata ai frutti rossi",
+     "spuntino": "1 yogurt bianco magro con 1 cubetto di liquirizia (10 g)",
+     "pranzo": "180 g di merluzzo o nasello e verdure a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "100 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "100 g di ricotta senza lattosio con granella di pistacchio (10 g o 6 pistacchi) e cioccolato fondente fuso o in scaglie ed 1 biscotto sbriciolato a piacere tuo",
+     "spuntino": "1 frutto piccolo poco prima di pranzo (30 min prima)",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 pacco di pavesini e 4 mandorle",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "ottobre",
+   "label": "Ottobre",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "80ml succo arancia rossa e 6 castagne e 1 yogurt magro bianco con marmellata di arancia",
+     "pranzo": "60g cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "100 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 ml di yogurt greco con 200 g di frutta (ribes o mirtilli o banana) e 2 fette biscottate con marmellata ai frutti rossi",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). valeriana o rucola con passata di pomodoro (almeno 100 g). frittata di cipolle a piacere (1 uovo e più albumi)",
+     "merenda": "10 arachidi non salati",
+     "cena": "150 g di sgombro al naturale con 150 g di fagiolini",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
+     "spuntino": "8 anacardi o 12 arachidi non salati",
+     "pranzo": "100 g di petto di pollo con carote (anche cotte spolverate di 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 g infuso al mirtillo con 1/2 fette di pane di segale (50 g) e un velo di burro di arachidi o crema di cioccolato (proteica)",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola (100 g)",
+     "pranzo": "Insalata di pasta o riso integrali 70 g con 100 g di cubetti di prosciutto cotto con verdure a volontà o altre verdure cotte e 10 g di aceto a condire",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 4 albumi sodi, puoi condire con 10 g di senape in salsa",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "200 g di latte di soia o 150 ml di latte di mandorla con 2 fette di pane integrale e marmellata ai frutti rossi",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "pranzo": "100 g di merluzzo o nasello e verdure a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "100 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "80ml succo arancia rossa e 6 castagne e 1 yogurt magro bianco con marmellata di arancia",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "novembre",
+   "label": "Novembre",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "60g cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di sgombro al naturale con 150 g di fagiolini",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "100 g di petto di pollo con carote (anche cotte spolverate di 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "Frittata con fagiolini con menta tritata (almeno 5 foglie e prezzemolo a piacere). funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 4 albumi sodi, puoi condire con 10 g di senape in salsa",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "pranzo": "100 g di merluzzo o nasello e verdure a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "200 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "dicembre",
+   "label": "Dicembre",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "crema di finocchi o finocchi cotti a piacere;\ncrema di carote o carote cotte a piacere;\n225 ml di latte e 5 g di cannella oppure 1 yogurt bianco circa 220 g con 5 g di cannella e 10 g di cioccolato fondente."
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di zucca e porri (puoi addensare con barbabietola), olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di sgombro al naturale con 280 g di carote e 10 g di grana",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "100 g di petto di pollo con lattughino e 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "friarielli a volontà con 120 g di funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con valeriana e cipolla bianca",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "frittata con zucchine e erbe di campo o friarielli o spinaci con 5 g di zenzero in polvere"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 6 albumi sodi, puoi condire con 10 g di senape in salsa",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "pranzo": "uovo fino a 6 albumi o frittata di cipolla (rosse) e carote cotte a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "200 g di salmone affumicato e zucchine o valeriana e cipolla bianca a piacere con 2 fettine di pane integrale (circa 50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "gennaio",
+   "label": "Gennaio",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "160 g di finocchi o funghi con 20 g di grana;\ncarote, peperoni o altre verdure color arancio rosso (1 mandarino in cottura con le verdure).\n1 o 2 yogurt greco o kefir con 10 g di miele o 1 o 2 budino proteico."
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di finocchi e porri (puoi addensare con barbabietola), olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di sgombro al naturale con 280 g di carote e 10 g di grana",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "100 g di petto di pollo con lattughino e 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "friarielli a volontà con 120 g di funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con valeriana e cipolla bianca",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "frittata con zucchine e erbe di campo o friarielli o spinaci con 5 g di zenzero in polvere"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 6 albumi sodi, puoi condire con 10 g di senape in salsa",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "pranzo": "uovo fino a 6 albumi o frittata di cipolla (rosse) e carote cotte a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "200 g di salmone affumicato e zucchine o valeriana e cipolla bianca a piacere con 2 fettine di pane integrale (circa 50 g)"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "febbraio",
+   "label": "Febbraio",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "160 g di finocchi o funghi con 20 g di grana;\ncarote, peperoni o altre verdure color arancio rosso (1 mandarino in cottura con le verdure).\n1 o 2 yogurt greco o kefir con 10 g di miele o 1 o 2 budino proteico."
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di finocchi e porri (puoi addensare con barbabietola), olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di tonno al naturale ed 1 yogurt greco bianco con 10 g di miele",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "100 g di petto di pollo con lattughino e 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "friarielli a volontà con 120 g di funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "100 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con valeriana e cipolla bianca",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "frittata con zucchine e erbe di campo o friarielli o spinaci con 5 g di zenzero in polvere"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di tonno al naturale ed 1 yogurt greco bianco con 10 g di miele",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "pranzo": "uovo fino a 6 albumi o frittata di cipolla (rosse) e carote cotte a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "1 frittata di albumi con passata di pomodoro e grana 10 g"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "marzo",
+   "label": "Marzo",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 cucchiai rasi di burro di arachidi",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "160 g di finocchi o funghi con 20 g di grana;\ncarote, peperoni o altre verdure color arancio rosso (1 mandarino in cottura con le verdure).\n1 o 2 yogurt greco o kefir con 10 g di miele o 1 o 2 budino proteico."
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di finocchi e porri (puoi addensare con barbabietola), olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "200 g di asparagi con 10 g di spezie (mix a piacere) con 90 g di sgombro al naturale",
+     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "100 g di petto di pollo con lattughino e 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "friarielli a volontà con 120 g di funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di asparagi con 150 g di tonno al naturale",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "frittata con zucchine e erbe di campo o friarielli o spinaci con 5 g di zenzero in polvere"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di tonno al naturale ed 1 yogurt greco bianco con 10 g di miele",
+     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "pranzo": "uovo fino a 6 albumi o frittata di cipolla (rosse) e carote cotte a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "1 frittata di albumi con passata di pomodoro e grana 10 g"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "aprile",
+   "label": "Aprile",
+   "rules": "rules2023",
+   "days": [
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 cucchiai rasi di burro di arachidi",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "200 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "160 g di finocchi o funghi con 20 g di grana;\ncarote, peperoni o altre verdure color arancio rosso (1 mandarino in cottura con le verdure).\n1 o 2 yogurt greco o kefir con 10 g di miele o 1 o 2 budino proteico."
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "10 arachidi non salati",
+     "pranzo": "vellutata di finocchi e porri (puoi addensare con barbabietola), olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "200 g di asparagi con 10 g di spezie (mix a piacere) con 90 g di sgombro al naturale"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "100 g di petto di pollo con lattughino e 10 g di grana (no olio))",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "friarielli a volontà con 120 g di funghi prezzemolati (almeno 100 g). 50 g di fesa di tacchino involtini ripieni di philadelphia protein (50 g);"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "100 ml di succo mirtillo puro preferibilmente, 1 kiwi o 110 g di mela, 10 g di cacao amaro, 5 g di stevia o eritriolo, 200 ml di latte di soia o 220 g di yogurt greco bianco",
+     "spuntino": "1 yogurt greco 0 % fage con 10 g di cacao amaro e 5 g di stevia",
+     "pranzo": "200 g di tonno al naturale o 120 g di bresaola con 80 g di valeriana e limone o 2 barrette enervit proteica 20 g con 0,1 g di zucchero al doppio cioccolato con 120 g di valeriana e limone",
+     "merenda": "1 yogurt bianco magro con 1 cucchiaio di cacao amaro e 5 g di stevia",
+     "cena": "1 uovo e minestrone di verdure"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
+     "pranzo": "vellutata di zucca e porri, olio a crudo",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "150 g di tonno al naturale ed 1 yogurt greco bianco con 10 g di miele"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "pranzo": "uovo fino a 6 albumi o frittata di cipolla (rosse) e carote cotte a piacere",
+     "merenda": "10 arachidi non salati",
+     "cena": "1 frittata di albumi con passata di pomodoro e grana 10 g"
+    },
+    {
+     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
+     "colazione": "125 ml di yogurt greco con 2 fette biscottate con marmellata di arancia",
+     "spuntino": "20 g di grana",
+     "pranzo": "100 g di bresaola e verdure a piacere",
+     "merenda": "1 yogurt bianco con 1 cucchiaino di marmellata",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
+    }
+   ]
+  },
+  {
+   "id": "giugno",
+   "label": "Giugno · rivisto",
+   "rules": "rules2024",
+   "days": [
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "60 g di pane integrale o di segale con marmellata senza zucchero e 50g philadelphia proteica ed 1 tisana o tè",
+     "spuntino": "1 yogurt bianco greco con 5 mandorle ed 1 frutto piccolo (110 g di mela) o una barretta sotto 150Kcal",
+     "pranzo": "60 g di farro o 100 g di pane integrale o 100 g di piselli (peso cotti) con 200 g di tonno al naturale con limone con carote cotte al forno o crude e 10 g di grana spolverato (no olio)",
+     "merenda": "yogurt bianco con marmellata e 3 noci",
+     "cena": "2 o 3 uova (sode o anche a frittata, no olio in cottura) con verdure miste e 10 g di grana e caponata di verdure (peperoni, zucchine e melanzane)",
+     "sera": "Tisana o infuso"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "Yogurt bianco con 40 g di muslei senza zucchero 30 g di burro di arachidi",
+     "spuntino": "1 BARRETTA SOTTO LE 100 Kcal",
+     "pranzo": "200 g di petto di pollo o tacchino e verdure",
+     "merenda": "8 arachidi non salati",
+     "cena": "Insalatona di verdure con passata di pomodoro (almeno 30 g), 100 g di cubetti di prosciutto cotto e spicchi di ananas o altra frutta a piacere (100 g), (puoi sostituire la frutta con 1 wasa di segale)",
+     "sera": "8 g cioccolato fondente"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "1 pudding al cioccolato o vaniglia (e' budino al cioccolato!!) con 2 o 3 fette biscottate integrali e marmellata (30 g) oppure tè o tisana con 60 g di pane integrale e 50 g di prosciutto cotto o fesa di tacchino con valeriana e/o passata di pomodoro",
+     "spuntino": "12 mandorle",
+     "pranzo": "Insalata di cetrioli e peperoni con cubetti di feta (100 g) oppure 120 g di philadelphia protein ed aceto balsamico con crostini di pane integrale (anche tostati), 30 g",
+     "merenda": "PORRIDGE salato (mischia semi di chia e semi di zucca frullati con 1 yogurt greco e carote filangè tagliate aggiungi latte di soia 100 ml e lascia raffreddare in frigo mangia in un bicchiere con aggiunta di semi di zucca interi)",
+     "cena": "250 g di pesce (platessa o sogliola o merluzzo o orata o pesce spada) con valeriana a volontà",
+     "sera": "1 pudding proteico"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "Yogurt greco (tua nota: «FAI LO YOGURT GRECO»)",
+     "spuntino": "1 Skyr bianco con 15 g di marmellata",
+     "pranzo": "1 uovo e 2 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 2 albumi) e carote cotte a bastoncino con 10 g di grana spolverato",
+     "merenda": "6 noci",
+     "cena": "1 crostone integrale (70 g) con passata di pomodoro e 150 g di philadelphia protein o 100 g di fiocchi di formaggio magro senza lattosio (es. exquisa ecc) con pomodorini freschi pachino (oppure finocchi o cicoria o peperoni), (puoi sostituire il crostone con 1 o 2 wasa di segale)",
+     "sera": "1 yogurt greco con 10 g di miele e 10 g di cioccolato anche fuso o pudding proteico"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "1 yogurt di soia con 1 banana o 1 kiwi e cioccolato fuso (20 g) o cacao amaro in polvere (10 g), 1 spremuta di frutta senza zuccheri (50 – 90 ml)",
+     "spuntino": "6 noci o 1 budino alla vaniglia",
+     "pranzo": "60 g di pasta integrale puoi sostituire la pasta con o 120 g di piselli (peso cotti) o 90 g di pasta legumi) condita con 100 g di cubetti di prosciutto cotto e spinaci o finocchi o zucchine al forno oppure 290 g di fagiolini con 100 g di ricotta (preferibilmente senza lattosio) oppure 100 g di prosciutto cotto con 290 g di fagiolini alla menta (in questo pasto prova a condire solo con 20 g di aceto o limone o passata di pomodoro)",
+     "merenda": "1 o 2 fette fini di affettato (bresaola/salmone /affettato vegetale) con 2 fette di pane di segale (50 g) o 1 wasa di segale",
+     "cena": "1 uovo e 3-4 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 3-4 albumi) e carote cotte o crude a bastoncino con 10 g di grana spolverato",
+     "sera": "8 g cioccolato fondente"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "210 ml di succo di arancia rossa o ananas con 2 o 3 fette biscottate integrali (puoi sostituire con 45 g di pane integrale) e 28 g di burro di arachidi oppure tè o tisana con 40 g di pane integrale e 40 g di philadelphia protein con pomodorini crudi e lattughino",
+     "spuntino": "1 fettina di pane (30 g) con 1 cucchiaio raso di burro di arachidi (10 g)",
+     "pranzo": "Pomodori ripieni di pesce al forno (200 g di merluzzo o nasello o 250 g di sogliola a straccetti e spolverata di spezie) con insalata di carote filangè, ravanelli e cipolle e/o cetrioli, puoi assumere solo pesce e verdure o 250 g di carne di manzo o vitello (massimo 2 volte al mese) impanati con 10 g di fiocchi d’avena e verdure",
+     "merenda": "1 barretta proteica sotto le 150 Kcal",
+     "cena": "Sgombro e 180gr di verdure"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "125 ml succo di ananas 100 % con 1 pancake ( 1 uovo sbattuto (fino a 4 albumi) con mezza mela e un cucchiaino di marmellata ai frutti rossi) con uno strato di burro di arachidi fine o marmellata senza zucchero",
+     "spuntino": "1 frutto piccolo poco prima di pranzo (30 min prima)",
+     "pranzo": "180 g di bresaola di tacchino oppure 200 g di fesa di tacchino e foglie di spinaci ad insalata con limone",
+     "merenda": "1 pacco di pavesini ed 1 yogurt bianco magro",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con contorno di verdure",
+     "sera": "Tisana o infuso"
+    }
+   ]
+  },
+  {
+   "id": "giugno-orig",
+   "label": "Giugno · originale",
+   "rules": "rules2024",
+   "days": [
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "60 g di pane integrale o di segale con marmellata senza zucchero e 50g philadelphia proteica ed 1 tisana o tè",
+     "spuntino": "1 yogurt bianco greco con 5 mandorle ed 1 frutto piccolo (110 g di mela) o una barretta sotto 150Kcal",
+     "pranzo": "60 g di farro o 100 g di pane integrale o 100 g di piselli (peso cotti) con 200 g di tonno al naturale con limone con carote cotte al forno o crude e 10 g di grana spolverato (no olio)",
+     "merenda": "yogurt bianco con marmellata e 3 noci",
+     "cena": "2 o 3 uova (sode o anche a frittata, no olio in cottura) con verdure miste e 10 g di grana e caponata di verdure (peperoni, zucchine e melanzane)",
+     "sera": "Tisana o infuso"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "Yogurt bianco con 40 g di muslei senza zucchero 30 g di burro di arachidi",
+     "spuntino": "20 g di ricotta con 5 g di miele e 1 o 2 fette biscottate integrali sbriciolata",
+     "pranzo": "200 g di petto di pollo o tacchino e verdure",
+     "merenda": "6 mandorle ed 1 yogurt greco bianco con 10 g di miele o crema novi (8 g)",
+     "cena": "Salmone (200 g se naturale e 130 g se affumicato) con 200 g di fagiolini conditi con passata di pomodoro e 1 o 2 wasa di segale",
+     "sera": "8 g cioccolato fondente"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "1 pudding al cioccolato o vaniglia con 2 o 3 fette biscottate integrali e marmellata (30 g) oppure tè o tisana con 60 g di pane integrale e 50 g di prosciutto cotto o fesa di tacchino con valeriana e/o passata di pomodoro",
+     "spuntino": "12 mandorle",
+     "pranzo": "60 g riso integrale o 50 g di cous cous con 150 g di gamberetti o 200 g di salmone al naturale (120 g se affumicato) e zucchine o cavolo cappuccio crudo ad insalata o lattughino a volontà",
+     "merenda": "Pudding salato (mischia semi di chia e semi di zucca frullati con 1 yogurt greco e carote filangè tagliate aggiungi latte di soia 100 ml e lascia raffreddare in frigo mangia in un bicchiere con aggiunta di semi di zucca interi)",
+     "cena": "250 g di pesce (platessa o sogliola o merluzzo o orata o pesce spada) con valeriana a volontà",
+     "sera": "1 pudding proteico"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "125 g di caffè latte (anche avena o mandorla o senza lattosio) con 6-7 biscotti (oro saiwa ai 5 cereali o fibre) o 5 frollini da colazione integrali (puoi sostituire i frollini con 30 – 40 g di muslei o cereali senza zucchero)",
+     "spuntino": "1 Skyr bianco con 15 g di marmellata",
+     "pranzo": "Insalatona di pesce (220 g di polpo e 90 g di piselli o 320 g di sogliola e 120 g di piselli) con insalata di verdure cruditè (sedano, carote, cipolle)",
+     "merenda": "6 noci",
+     "cena": "1 crostone integrale (70 g) con passata di pomodoro e 150 g di philadelphia protein o 100 g di fiocchi di formaggio magro senza lattosio (es. exquisa ecc) con pomodorini freschi pachino (oppure finocchi o cicoria o peperoni), (puoi sostituire il crostone con 1 o 2 wasa di segale)",
+     "sera": "1 yogurt greco con 10 g di miele e 10 g di cioccolato anche fuso o pudding proteico"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "1 tazza di latte di mandorle con 2 o 3 fette biscottate integrali con un velo di marmellata (preferibilmente Hero) e 10 g di cioccolato fondente",
+     "spuntino": "6 noci o 1 budino alla vaniglia",
+     "pranzo": "60 g di pasta integrale puoi sostituire la pasta con o 120 g di piselli (peso cotti) o 90 g di pasta legumi) condita con 100 g di cubetti di prosciutto cotto e spinaci o finocchi o zucchine al forno oppure 290 g di fagiolini con 100 g di ricotta (preferibilmente senza lattosio) oppure 100 g di prosciutto cotto con 290 g di fagiolini alla menta (in questo pasto prova a condire solo con 20 g di aceto o limone o passata di pomodoro)",
+     "merenda": "1 o 2 fette fini di affettato (bresaola/salmone /affettato vegetale) con 2 fette di pane di segale (50 g) o 1 wasa di segale",
+     "cena": "1 uovo e 3-4 albumi strapazzati al pomodoro con erba di campo oppure frittata di zucchine (sempre 1 uovo e 3-4 albumi) e carote cotte o crude a bastoncino con 10 g di grana spolverato",
+     "sera": "8 g cioccolato fondente"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "210 ml di succo di arancia rossa o ananas con 2 o 3 fette biscottate integrali (puoi sostituire con 45 g di pane integrale) e 30 g di burro di arachidi oppure tè o tisana con 60 g di pane integrale e 60 g di philadelphia protein con pomodorini crudi e lattughino",
+     "spuntino": "1 fettina di pane (30 g) con 1 cucchiaio raso di burro di arachidi (10 g)",
+     "pranzo": "Pomodori ripieni di pesce al forno (200 g di merluzzo o nasello o 250 g di sogliola a straccetti e spolverata di spezie) con insalata di carote filangè, ravanelli e cipolle e/o cetrioli, puoi assumere solo pesce e verdure o 250 g di carne di manzo o vitello (massimo 2 volte al mese) impanati con 10 g di fiocchi d’avena e verdure",
+     "merenda": "1 barretta proteica sotto le 150 Kcal",
+     "cena": "Sgombro e 180gr di verdure"
+    },
+    {
+     "sveglia": "acqua e limone",
+     "colazione": "125 ml succo di ananas 100 % con 1 pancake ( 1 uovo sbattuto (fino a 4 albumi) con mezza mela e un cucchiaino di marmellata ai frutti rossi) con uno strato di burro di arachidi fine o marmellata senza zucchero",
+     "spuntino": "1 frutto piccolo poco prima di pranzo (30 min prima)",
+     "pranzo": "180 g di bresaola di tacchino oppure 200 g di fesa di tacchino e foglie di spinaci ad insalata con limone",
+     "merenda": "1 pacco di pavesini ed 1 yogurt bianco magro",
+     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con contorno di verdure",
+     "sera": "Tisana o infuso"
+    }
+   ]
+  }
+ ],
+ "monthMap": {
+  "1": "gennaio",
+  "2": "febbraio",
+  "3": "marzo",
+  "4": "aprile",
+  "5": "aprile",
+  "6": "giugno",
+  "7": "giugno",
+  "8": "giugno",
+  "9": "settembre",
+  "10": "ottobre",
+  "11": "novembre",
+  "12": "dicembre"
+ },
+ "rules": {
+  "rules2023": {
+   "title": "Regole piano Settembre 2023",
+   "items": [
+    [
+     "Condimenti",
+     "Olio extravergine d'oliva (no margarina/burro) o olio di lino, 1–2 cucchiai da minestra a pasto, a crudo."
+    ],
+    [
+     "Pesi",
+     "Quasi tutti a crudo. Contano soprattutto carboidrati (pane, pasta, riso, orzo, farro, patate) e legumi; il resto è indicativo."
+    ],
+    [
+     "Cotture",
+     "Leggere: griglia, vapore, forno, cartoccio. No soffritto (usa acqua)."
+    ],
+    [
+     "Carne/Pesce",
+     "No impanati/fritti. Carne rossa max 3 volte al mese. Pesce (sogliola, merluzzo, baccalà, palombo, orata, platessa, polpo, salmone – affumicato max 100 g) 150–350 g; tonno/sgombro al naturale 80–190 g."
+    ],
+    [
+     "Affettati",
+     "Prosciutto cotto, crudo sgrassato, bresaola, fesa di tacchino 80–130 g, 1–2 volte a settimana."
+    ],
+    [
+     "Verdure",
+     "Crude/lessate/vapore/padella antiaderente o forno senza olio. Porzione ideale ~450 g."
+    ],
+    [
+     "Legumi",
+     "Porzione 80–130 g (peso cotto). Sostituibili con 70 g di pane integrale o 250 g di patate."
+    ],
+    [
+     "Cereali",
+     "Variare. Porzione 70–100 g: riso/pasta integrale, pasta di legumi, miglio, orzo, farro, cous cous, amaranto, riso venere, patate (230 g)."
+    ],
+    [
+     "Formaggi",
+     "Grana/Parmigiano 30 g (spuntino) / 45 g (pasto); ricotta 120 g; mozzarella 80–120 g; fiocchi di latte 110–150 g; Philadelphia protein 150 g; feta 80–100 g; quark 150 g."
+    ],
+    [
+     "Yogurt",
+     "Preferibilmente senza frutta (Fage 0,1, Alce Nero, Vipiteno)."
+    ],
+    [
+     "Pasto veloce",
+     "Sostituisce un pasto: 120 g piselli + 150 g tonno al naturale, oppure 100 g piselli + 120 g bresaola di tacchino (solo limone, prezzemolo o curcuma); dopo 1 yogurt greco con 1 frutto oppure 40 g di farro (alternando con 100 g tonno, 150 g sgombro, 2 uova sode, 100 g prosciutto cotto)."
+    ],
+    [
+     "Fuori casa",
+     "Secondo + verdure poco condite. Colazione al bar max 2/settimana: cornetto integrale vuoto o marmellata + caffè d'orzo o spremuta. Toast grande o 2 piccoli portati da casa."
+    ],
+    [
+     "Fame la sera",
+     "Abbonda con le verdure e aggiungi 1 High Protein, Milk Pro o budino proteico prima di dormire."
+    ],
+    [
+     "Scambi",
+     "Pranzi e cene si possono invertire. Gli spuntini si possono scambiare tra i giorni e ripetere i preferiti."
+    ],
+    [
+     "Acqua",
+     "Circa 2 litri al giorno. Infusi/tisane: più al mattino, meno verso sera."
+    ]
+   ]
+  },
+  "rules2024": {
+   "title": "Regole piano Giugno 2024",
+   "items": [
+    [
+     "Condimenti",
+     "Olio extravergine d'oliva (no margarina/burro) o olio di lino, 1–2 cucchiai da minestra a pasto, a crudo."
+    ],
+    [
+     "Pesi",
+     "Quasi tutti a crudo. Contano soprattutto carboidrati e legumi; il resto è indicativo."
+    ],
+    [
+     "Cotture",
+     "Leggere: griglia, vapore, forno, cartoccio. No soffritto (usa acqua)."
+    ],
+    [
+     "Carne/Pesce",
+     "No impanati/fritti. Carne rossa max 3 volte al mese. Pesce 150–320 g (salmone affumicato max 100 g); tonno/sgombro 90–150 g."
+    ],
+    [
+     "Affettati",
+     "Prosciutto cotto, crudo sgrassato, bresaola, fesa di tacchino 70–150 g, 1–2 volte a settimana."
+    ],
+    [
+     "Verdure",
+     "Crude/lessate/vapore/padella o forno senza olio. Porzione ideale ~350 g."
+    ],
+    [
+     "Legumi",
+     "Porzione 80–140 g (peso cotto)."
+    ],
+    [
+     "Cereali",
+     "Variare. Porzione 70–120 g: riso, pasta integrale, patate (290 g), kamut, farro, orzo, riso venere, amaranto 100 g, miglio, cous cous."
+    ],
+    [
+     "Formaggi",
+     "Grana/Parmigiano 30 g (spuntino) / 50 g (pasto); ricotta 120 g; mozzarella 80–130 g; fiocchi di latte 80–160 g; Philadelphia protein 150 g; feta 80–110 g; quark 120–160 g."
+    ],
+    [
+     "Yogurt",
+     "Preferibilmente senza frutta (Fage 0,1, Alce Nero, Vipiteno)."
+    ],
+    [
+     "Fuori casa",
+     "Secondo + verdure poco condite. Colazione al bar max 2/settimana: cornetto integrale + caffè d'orzo o spremuta. Toast portati da casa."
+    ],
+    [
+     "Scambi",
+     "Pranzi e cene si possono invertire. Gli spuntini si possono scambiare tra i giorni."
+    ],
+    [
+     "Acqua",
+     "Circa 2 litri al giorno. Infusi/tisane: più al mattino, meno verso sera."
+    ]
+   ]
+  }
+ },
+ "extras": [
+  {
+   "title": "Menù leggeri (al posto di 3 pasti principali a settimana)",
+   "items": [
+    "Menù 1: fagiolini con menta tritata (almeno 5 foglie, prezzemolo a piacere) · valeriana o rucola con passata di pomodoro (almeno 100 g) · 100 g di fesa di tacchino in involtini ripieni di Philadelphia protein (50 g)",
+    "Menù 2: fagiolini con menta tritata · valeriana o rucola con passata di pomodoro (almeno 100 g) · frittata di cipolle (1 uovo e più albumi)",
+    "Menù 3: fagiolini con menta tritata · funghi prezzemolati (almeno 100 g) · 50 g di fesa di tacchino in involtini ripieni di Philadelphia protein (50 g)"
+   ]
+  },
+  {
+   "title": "Menù verdure (1–2 pasti a settimana)",
+   "items": [
+    "Insalata di 1–2 carote o 1–2 cetrioli con 1–2 kiwi o 100 g di mela verde (o 100 g di asparagi al posto del frutto)",
+    "Peperoni e cipolle con 30 g di crema di frutta secca (frutta secca frullata + latte vegetale) o 30 g di frutta secca (es. 25 mandorle)",
+    "Circa 120 g di funghi prezzemolati (acqua o limone in cottura). Se troppo, togli peperoni/cipolle ma tieni insalata e funghi + 10 mandorle"
+   ]
+  },
+  {
+   "title": "Colazione d'autunno (circa 2 volte a settimana)",
+   "items": [
+    "6–8 castagne",
+    "Succo di mirtillo 80–100 ml o arancia rossa o succo d'ananas",
+    "1–2 yogurt bianchi magri con 5 g di miele o 5 g di stevia",
+    "Se poi non hai voglia dello spuntino, saltalo. Come spuntino 2 volte a settimana: 1 yogurt greco magro con 10 g di marmellata di arancia rossa o agrumi"
+   ]
+  },
+  {
+   "title": "Movimento (consiglio della dietista)",
+   "items": [
+    "Più movimento possibile, con costanza: anche camminare conta",
+    "20–45 addominali al giorno e 15–20 flessioni sulle braccia, senza sovraccaricare la schiena"
+   ]
+  }
+ ],
+ "height": 175,
+ "weights": [
+  [
+   "2019-12-03",
+   89.0
+  ],
+  [
+   "2023-09-04",
+   101.0
+  ],
+  [
+   "2023-10-03",
+   95.8
+  ],
+  [
+   "2023-10-30",
+   93.0
+  ],
+  [
+   "2023-12-04",
+   94.1
+  ],
+  [
+   "2024-01-08",
+   92.7
+  ],
+  [
+   "2024-02-05",
+   93.6
+  ],
+  [
+   "2024-03-04",
+   91.9
+  ],
+  [
+   "2024-04-08",
+   92.5
+  ],
+  [
+   "2024-05-13",
+   92.5
+  ],
+  [
+   "2024-06-10",
+   91.0
+  ]
+ ]
+}
