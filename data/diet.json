@@ -11,76 +11,8 @@
  },
  "phases": [
   {
-   "id": "inizio",
-   "label": "Settembre · piano iniziale della dietista",
-   "rules": "rules2023",
-   "days": [
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "200 g di latte di soia con 3 fette biscottate di malto d'orzo con 20 g di marmellata di frutti rossi",
-     "spuntino": "Carote filangè o sedano o cetriolo (100 g) e 1 yogurt magro bianco",
-     "pranzo": "Insalata di 90 g di pane o 60 g di farro o cous cous al pomodoro (preferibilmente passata) e cubetto di grana 20 g con lattuga e verdure a piacere",
-     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
-     "cena": "250 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone",
-     "sera": "Yogurt greco con 5g di marmellata"
-    },
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "200 ml di yogurt greco con 200 g di frutta (ribes o mirtilli o banana) e 2 fette biscottate con marmellata ai frutti rossi",
-     "spuntino": "1 yogurt magro bianco con 1 banana piccola",
-     "pranzo": "Frittata al pomodoro e grana (1 uovo e fino a 4 albumi, 10 g di grana) e bieta con carote a volontà puoi unire salsa di senape (5g))",
-     "merenda": "10 arachidi non salati",
-     "cena": "150 g di sgombro al naturale con 150 g di fagiolini",
-     "veloce": "100 G DI PISELLI E 150 G DI TONNO AL NATURALE"
-    },
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "125 g infuso al mirtillo con 1/2 fette di pane di segale (50 g) e un velo di burro di arachidi o crema di cioccolato (proteica)",
-     "spuntino": "30g di grana",
-     "pranzo": "120 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere",
-     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
-     "cena": "180 g di fesa di petto di tacchino anche affettato e 2 patate piccole con rucola a volontà",
-     "sera": "1 o mezzo High Protein"
-    },
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
-     "spuntino": "8 anacardi o 12 arachidi non salati",
-     "pranzo": "220g di petto di pollo con carote e spolverata di 10g di grana",
-     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
-     "cena": "Caprese di formaggio magro come Philadelphia proteico (130 g) o fiocchi di latte proteici (200 g) e pomodori freschi"
-    },
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata",
-     "spuntino": "1 yogurt magro bianco con 1 banana piccola (100 g)",
-     "pranzo": "Insalata di pasta o riso integrali 70 g con 100 g di cubetti di prosciutto cotto con verdure a volontà o altre verdure cotte e 10 g di aceto a condire",
-     "merenda": "1 yogurt bianco con 1 cucchiaino di miele d'arancio o marmellata",
-     "cena": "Insalata di verdure a piacere con 2 uova sode e fino a 4 albumi sodi, puoi condire con 10 g di senape in salsa",
-     "sera": "1 o mezzo milk pro al cioccolato o vaniglia",
-     "veloce": "100 G DI PISELLI E 120 G di bresaola di tacchino senza condimento ulteriore se non limone e prezzemolo o curcuma"
-    },
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "200 g di latte di soia o 150 ml di latte di mandorla con 2 fette di pane integrale e marmellata ai frutti rossi",
-     "spuntino": "1 yogurt bianco magro con 1 cubetto di liquirizia (10 g)",
-     "pranzo": "220 g di merluzzo o nasello e verdure a piacere",
-     "merenda": "10 arachidi non salati",
-     "cena": "200 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)"
-    },
-    {
-     "sveglia": "1 bicchiere di acqua e mezzo limone strizzato",
-     "colazione": "100 g di ricotta senza lattosio con granella di pistacchio (10 g o 6 pistacchi) e cioccolato fondente fuso o in scaglie ed 1 biscotto sbriciolato a piacere tuo",
-     "spuntino": "1 frutto piccolo poco prima di pranzo (30 min prima)",
-     "pranzo": "130 g di bresaola e verdure a piacere",
-     "merenda": "1 pacco di pavesini e 4 mandorle",
-     "cena": "1 Pizza margherita semplice o vegetariana o con crudo e rucola o bresaola e rucola o piadina integrale con verdure e formaggio o affettato (30 g) con verdure"
-    }
-   ]
-  },
-  {
    "id": "settembre",
-   "label": "Settembre · tua versione",
+   "label": "Settembre",
    "rules": "rules2023",
    "days": [
     {

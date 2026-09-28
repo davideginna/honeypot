@@ -90,41 +90,6 @@
    "alt": "o marmellata"
   }
  ],
- "250 g di pesce (platessa o sogliola o orata o pesce spada) con valeriana e limone o lattuga e limone": [
-  {
-   "n": "Pesce bianco (platessa/sogliola/orata)",
-   "q": 250,
-   "u": "g",
-   "c": "Carne e pesce"
-  },
-  {
-   "n": "Valeriana",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura",
-   "alt": "o lattuga"
-  },
-  {
-   "n": "Limone",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
-  }
- ],
- "Yogurt greco con 5g di marmellata": [
-  {
-   "n": "Yogurt greco bianco",
-   "q": 1,
-   "u": "pz",
-   "c": "Latticini e uova"
-  },
-  {
-   "n": "Marmellata",
-   "q": 5,
-   "u": "g",
-   "c": "Dispensa"
-  }
- ],
  "200 ml di yogurt greco con 200 g di frutta (ribes o mirtilli o banana) e 2 fette biscottate con marmellata ai frutti rossi": [
   {
    "n": "Yogurt greco bianco",
@@ -164,50 +129,6 @@
    "q": 1,
    "u": "pz",
    "c": "Frutta e verdura"
-  }
- ],
- "Frittata al pomodoro e grana (1 uovo e fino a 4 albumi, 10 g di grana) e bieta con carote a volontà puoi unire salsa di senape (5g))": [
-  {
-   "n": "Uova",
-   "q": 1,
-   "u": "pz",
-   "c": "Latticini e uova"
-  },
-  {
-   "n": "Albumi",
-   "q": 4,
-   "u": "pz",
-   "c": "Latticini e uova"
-  },
-  {
-   "n": "Grana",
-   "q": 10,
-   "u": "g",
-   "c": "Latticini e uova"
-  },
-  {
-   "n": "Passata di pomodoro",
-   "q": null,
-   "u": null,
-   "c": "Dispensa"
-  },
-  {
-   "n": "Bieta",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
-  },
-  {
-   "n": "Carote",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
-  },
-  {
-   "n": "Senape",
-   "q": 5,
-   "u": "g",
-   "c": "Dispensa"
   }
  ],
  "10 arachidi non salati": [
@@ -253,14 +174,6 @@
    "alt": "o crema di cioccolato proteica"
   }
  ],
- "30g di grana": [
-  {
-   "n": "Grana",
-   "q": 30,
-   "u": "g",
-   "c": "Latticini e uova"
-  }
- ],
  "120 g di fagioli e 2 scatole piccole di tonno al naturale (circa 180 g) con verdure a piacere": [
   {
    "n": "Fagioli",
@@ -279,34 +192,6 @@
    "q": null,
    "u": null,
    "c": "Frutta e verdura"
-  }
- ],
- "180 g di fesa di petto di tacchino anche affettato e 2 patate piccole con rucola a volontà": [
-  {
-   "n": "Fesa di tacchino",
-   "q": 180,
-   "u": "g",
-   "c": "Carne e pesce"
-  },
-  {
-   "n": "Patate",
-   "q": 2,
-   "u": "pz",
-   "c": "Frutta e verdura"
-  },
-  {
-   "n": "Rucola",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
-  }
- ],
- "1 o mezzo High Protein": [
-  {
-   "n": "High Protein (budino o drink)",
-   "q": 0.5,
-   "u": "pz",
-   "c": "Pronti e snack"
   }
  ],
  "1 yogurt bianco greco con 100 g di frutta a piacere ed 1 fette biscottate con marmellata": [
@@ -342,41 +227,6 @@
    "u": "pz",
    "c": "Frutta secca",
    "alt": "o 12 arachidi"
-  }
- ],
- "220g di petto di pollo con carote e spolverata di 10g di grana": [
-  {
-   "n": "Petto di pollo",
-   "q": 220,
-   "u": "g",
-   "c": "Carne e pesce"
-  },
-  {
-   "n": "Carote",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
-  },
-  {
-   "n": "Grana",
-   "q": 10,
-   "u": "g",
-   "c": "Latticini e uova"
-  }
- ],
- "Caprese di formaggio magro come Philadelphia proteico (130 g) o fiocchi di latte proteici (200 g) e pomodori freschi": [
-  {
-   "n": "Philadelphia proteico",
-   "q": 130,
-   "u": "g",
-   "c": "Latticini e uova",
-   "alt": "o 200 g di fiocchi di latte proteici"
-  },
-  {
-   "n": "Pomodori",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
   }
  ],
  "1 yogurt magro bianco con 1 banana piccola (100 g)": [
@@ -446,14 +296,6 @@
    "c": "Dispensa"
   }
  ],
- "1 o mezzo milk pro al cioccolato o vaniglia": [
-  {
-   "n": "Milk Pro (cioccolato o vaniglia)",
-   "q": 0.5,
-   "u": "pz",
-   "c": "Bevande"
-  }
- ],
  "200 g di latte di soia o 150 ml di latte di mandorla con 2 fette di pane integrale e marmellata ai frutti rossi": [
   {
    "n": "Latte di soia",
@@ -487,21 +329,6 @@
    "q": 10,
    "u": "g",
    "c": "Pronti e snack"
-  }
- ],
- "220 g di merluzzo o nasello e verdure a piacere": [
-  {
-   "n": "Merluzzo",
-   "q": 220,
-   "u": "g",
-   "c": "Carne e pesce",
-   "alt": "o nasello"
-  },
-  {
-   "n": "Verdure miste di stagione",
-   "q": null,
-   "u": null,
-   "c": "Frutta e verdura"
   }
  ],
  "200 g di salmone affumicato e zucchine a piacere con 2 fettine di pane integrale (circa 50 g)": [
@@ -555,20 +382,6 @@
    "n": "Frutta di stagione",
    "q": 1,
    "u": "pz",
-   "c": "Frutta e verdura"
-  }
- ],
- "130 g di bresaola e verdure a piacere": [
-  {
-   "n": "Bresaola",
-   "q": 130,
-   "u": "g",
-   "c": "Carne e pesce"
-  },
-  {
-   "n": "Verdure miste di stagione",
-   "q": null,
-   "u": null,
    "c": "Frutta e verdura"
   }
  ],
