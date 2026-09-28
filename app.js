@@ -413,14 +413,19 @@ function monthView(date) {
       <label for="phaseSelect">Piano del mese</label>
       <select id="phaseSelect">${options.replace('value="auto"', `value="auto"${state.phase === 'auto' ? ' selected' : ''}`)}</select>
     </div>
-    <div class="card">
+    <div class="month-layout">
+    <div class="card cal-card">
       <div class="cal">${['L', 'M', 'M', 'G', 'V', 'S', 'D'].map(x => `<div class="wh">${x}</div>`).join('')}${cells.join('')}</div>
       <div class="legend"><span><i></i>pesata</span><span><i class="ring"></i>2 L d'acqua</span></div>
     </div>
     <div class="card filled">
       <div class="day-head" style="margin:0 0 8px"><h2 style="font-size:20px">${fmt(date, { weekday: 'long', day: 'numeric' })}</h2></div>
-      <div class="wday" style="cursor:default"><dl>${['colazione', 'pranzo', 'cena'].filter(s => m[s]).map(s => `<dt>${DATA.slots[s]}</dt><dd>${mealText(m, s)}</dd>`).join('')}</dl></div>
+      <div class="wday" style="cursor:default"><dl>${SLOT_ORDER.filter(s => s !== 'sveglia' && m[s]).map(s => {
+        const x = ['colazione', 'pranzo', 'cena'].includes(s) ? '' : ' class="extra"';
+        return `<dt${x}>${DATA.slots[s]}</dt><dd${x}>${mealText(m, s)}</dd>`;
+      }).join('')}</dl></div>
       <div class="form-actions"><button class="filled-btn" data-open="${keyOf(date)}">Apri giorno</button></div>
+    </div>
     </div>`;
 }
 

@@ -402,3 +402,10 @@ details.rule[open] .chev { transform: rotate(180deg); }
   .rules-grid { grid-template-columns: 1fr 1fr; }
   .shop-cat-wrap { columns: 2; }
 }
+@media (min-width: 1000px) {
+  .month-layout { display: grid; grid-template-columns: 380px 1fr; gap: 16px; align-items: start; }
+  .month-layout .cal-card { position: sticky; top: 140px; }
+  .month-layout .cal button { font-size: 13px; }
+  .month-layout > .card { margin-bottom: 0; }
+  .select-field { max-width: 380px; }
+}
