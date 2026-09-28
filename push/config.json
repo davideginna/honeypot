@@ -1,0 +1,7 @@
+{
+  "timezone": "Europe/Rome",
+  "subscriptions": [],
+  "weigh":   { "enabled": true, "day": 0, "time": "08:00" },
+  "water":   { "enabled": true, "from": "09:00", "to": "21:00", "everyMinutes": 90 },
+  "checkin": { "enabled": true, "dayOfMonth": 1, "time": "09:00" }
+}

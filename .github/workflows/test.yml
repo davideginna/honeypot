@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+# Each job is independent: add further jobs (e.g. app tests) under `jobs:`.
+jobs:
+  push-tests:
+    name: Push reminder tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: push
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: push/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+
+  app-tests:
+    name: App tests (headless Chrome)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+        env:
+          CHROME: google-chrome

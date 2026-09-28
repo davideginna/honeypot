@@ -3,8 +3,11 @@
 const STATE_KEY = 'dieta.state';
 const WEIGHTS_KEY = 'dieta.weights';
 const WATER_KEY = 'dieta.water';
+const CHECKIN_KEY = 'dieta.checkins';
+const PUSH_KEY = 'dieta.pushsub';
+const VAPID_PUBLIC = 'BK-4qV_LIIsKAzUtEpA8OuAqfzDUQAt1b1pA0gbjPkOhzpp1QftWtSqcpi6YVkbrAEs1my-TUR3ng0GNxZWJskw';
+const CONFIG_EDIT_URL = 'https://github.com/davideginna/honeypot/edit/main/push/config.json';
 const SEEN_KEY = 'dieta.achievements';
-const SHOP_KEY = 'dieta.shop';
 const CATS = ['Frutta e verdura', 'Carne e pesce', 'Latticini e uova', 'Pane e cereali', 'Legumi', 'Frutta secca', 'Dispensa', 'Bevande', 'Pronti e snack'];
 const SLOT_ORDER = ['sveglia', 'colazione', 'spuntino', 'pranzo', 'merenda', 'cena', 'sera'];
 const REDUCED_SLOTS = ['pranzo', 'cena', 'veloce'];
@@ -89,12 +92,14 @@ function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); 
 
 let DATA, ING = null;
 const state = Object.assign(
-  { tab: 'plan', view: 'day', date: keyOf(today()), phase: 'auto', range: 'all', theme: 'auto', color: 'verde', weighDay: 0 },
+  { tab: 'plan', view: 'day', date: keyOf(today()), phase: 'auto', range: 'all', theme: 'auto', color: 'verde', weighDay: 0,
+    notif: { weigh: true, weighTime: '08:00', water: true, waterFrom: '09:00', waterTo: '21:00', waterEvery: 90, checkin: true, checkinDay: 1, checkinTime: '09:00' } },
   load(STATE_KEY, {})
 );
+state.notif = Object.assign({ weigh: true, weighTime: '08:00', water: true, waterFrom: '09:00', waterTo: '21:00', waterEvery: 90, checkin: true, checkinDay: 1, checkinTime: '09:00' }, state.notif);
 let userWeights = load(WEIGHTS_KEY, []);
 let water = load(WATER_KEY, {});
-let shopChecks = load(SHOP_KEY, {});
+let checkins = load(CHECKIN_KEY, {}); // { 'YYYY-MM': { d, kg, fm, waist, hips } }
 const persist = () => save(STATE_KEY, state);
 
 // ---------- theme ----------
@@ -194,6 +199,8 @@ function computeAchievements() {
     { id: 'w12', t: 'Abitudine', d: 'Pesata 12 settimane di fila', ic: 'scale', ok: bestWeeks >= 12, pr: p(bestWeeks, 12), sub: `${bestWeeks} / 12 settimane` },
     { id: 'h1', t: 'Idratato', d: '2 L d\'acqua in un giorno', ic: 'water', ok: bestWater >= 1 },
     { id: 'h7', t: 'Settimana idratata', d: '2 L al giorno per 7 giorni', ic: 'water', ok: bestWater >= 7, pr: p(bestWater, 7), sub: `${bestWater} / 7 giorni` },
+    { id: 'ck1', t: 'Misurato', d: 'Primo check-in mensile', ic: 'scale', ok: Object.keys(checkins).length >= 1 },
+    { id: 'ck3', t: 'Tre mesi di misure', d: '3 check-in mensili', ic: 'scale', ok: Object.keys(checkins).length >= 3, pr: p(Object.keys(checkins).length, 3), sub: `${Object.keys(checkins).length} / 3` },
     { id: 'h30', t: 'Fonte inesauribile', d: '2 L al giorno per 30 giorni', ic: 'water', ok: bestWater >= 30, pr: p(bestWater, 30), sub: `${bestWater} / 30 giorni` },
   ];
 }
@@ -234,20 +241,19 @@ function renderPlan() {
   if (state.view === 'day') {
     label = fmt(date, { weekday: 'short', day: 'numeric', month: 'short' });
     todayBtn.disabled = sameDay(date, t);
-    main.innerHTML = state.tab === 'shop' ? shopView([date], 'D' + state.date) : dayView(date);
+    main.innerHTML = state.tab === 'shop' ? shopView(shopDays()) : dayView(date);
   } else if (state.view === 'week') {
     const s = weekStart(date), e = addDays(s, 6);
     label = s.getMonth() === e.getMonth()
       ? `${s.getDate()}–${e.getDate()} ${fmt(e, { month: 'short' })}`
       : `${fmt(s, { day: 'numeric', month: 'short' })} – ${fmt(e, { day: 'numeric', month: 'short' })}`;
     todayBtn.disabled = sameDay(s, weekStart(t));
-    main.innerHTML = state.tab === 'shop' ? shopView([...Array(7)].map((_, i) => addDays(s, i)), 'W' + keyOf(s)) : weekView(s);
+    main.innerHTML = state.tab === 'shop' ? shopView(shopDays()) : weekView(s);
   } else {
     label = fmt(date, { month: 'long', year: 'numeric' });
     todayBtn.disabled = date.getMonth() === t.getMonth() && date.getFullYear() === t.getFullYear();
-    const n = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     main.innerHTML = state.tab === 'shop'
-      ? shopView([...Array(n)].map((_, i) => new Date(date.getFullYear(), date.getMonth(), i + 1)), 'M' + state.date.slice(0, 7))
+      ? shopView(shopDays())
       : monthView(date);
   }
   $('#navLabel').textContent = label;
@@ -270,6 +276,47 @@ function waterCard(k) {
       <div class="glasses">${glasses}</div>
       <div class="muted small">1 bicchiere = ${GLASS_ML} ml${n >= WATER_GOAL ? ' · obiettivo raggiunto 🎉' : ''}</div>
     </section>`;
+}
+
+// ---------- monthly check-in ----------
+const monthKey = d => keyOf(d).slice(0, 7);
+const checkinDue = () => !checkins[monthKey(today())];
+function checkinCompact() {
+  if (!checkinDue()) return '';
+  return `
+    <section class="card weigh checkin">
+      <div class="ico">${icon('trophy')}</div>
+      <div class="grow"><div class="k">Check-in di ${fmt(today(), { month: 'long' })}</div><div>Peso e misure del mese</div></div>
+      <button class="filled-btn" data-go-checkin>Compila</button>
+    </section>`;
+}
+function checkinSection() {
+  const t = today(), mk = monthKey(t);
+  const list = Object.entries(checkins).sort((a, b) => b[0].localeCompare(a[0]));
+  const form = checkinDue() ? `
+    <section class="card" id="checkinCard">
+      <div class="section-title" style="margin-top:0">Check-in di ${fmt(t, { month: 'long', year: 'numeric' })}</div>
+      <p class="muted small" style="margin:0 0 14px">Una volta al mese. Dopo il salvataggio si chiude fino al mese prossimo.</p>
+      <form id="ckForm">
+        <div class="form-row">
+          <div class="field"><label for="ckDate">Data</label><input id="ckDate" type="date" required value="${keyOf(t)}" min="${mk}-01" max="${keyOf(t)}"></div>
+          <div class="field"><label for="ckKg">Peso (kg) *</label><input id="ckKg" type="number" inputmode="decimal" step="0.1" min="30" max="250" required></div>
+          <div class="field"><label for="ckFm">Massa grassa (kg)</label><input id="ckFm" type="number" inputmode="decimal" step="0.1" min="1" max="120"></div>
+          <div class="field"><label for="ckWaist">Vita (cm)</label><input id="ckWaist" type="number" inputmode="decimal" step="0.5" min="40" max="200"></div>
+          <div class="field"><label for="ckHips">Fianchi (cm)</label><input id="ckHips" type="number" inputmode="decimal" step="0.5" min="40" max="200"></div>
+        </div>
+        <div class="form-actions"><button class="filled-btn" type="submit">Salva check-in</button></div>
+      </form>
+    </section>` : `
+    <section class="card weigh done"><div class="ico">${icon('trophy')}</div>
+      <div class="grow"><div class="k">Check-in del mese</div><div>Fatto ✓ · il prossimo dal 1° ${fmt(new Date(t.getFullYear(), t.getMonth() + 1, 1), { month: 'long' })}</div></div></section>`;
+  const hist = list.length ? `
+    <div class="section-title">Check-in mensili</div>
+    <div class="card"><ul class="wlist">${list.map(([m, c]) => `<li><div class="d">${fmt(parseKey(c.d), { month: 'long', year: 'numeric' })}
+      <small>${[c.fm && `grassa ${fmtKg(c.fm)} kg`, c.waist && `vita ${c.waist} cm`, c.hips && `fianchi ${c.hips} cm`].filter(Boolean).join(' · ') || '—'}</small></div>
+      <span class="kg">${fmtKg(c.kg)} kg</span>
+      <button class="icon-btn" data-del-ck="${m}" aria-label="Elimina check-in ${m}"><svg viewBox="0 0 24 24"><path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button></li>`).join('')}</ul></div>` : '';
+  return { form, hist };
 }
 
 function weighCard(date) {
@@ -304,6 +351,7 @@ function dayView(date) {
   return `
     <div class="day-head"><h2>${isToday ? 'Oggi' : fmt(date, { weekday: 'long' })}</h2>
       <span class="muted">${fmt(date, { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
+    ${isToday ? checkinCompact() : ''}
     ${weighCard(date)}
     ${cards}${alt}
     ${waterCard(k)}
@@ -401,35 +449,32 @@ function fmtAmount(e) {
   if (e.qb) parts.push('q.b.');
   return parts.join(' + ');
 }
-function shopView(days, period) {
+function shopDays() {
+  const d = parseKey(state.date);
+  if (state.view === 'day') return [d];
+  if (state.view === 'week') return [...Array(7)].map((_, i) => addDays(weekStart(d), i));
+  return [...Array(new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate())].map((_, i) => new Date(d.getFullYear(), d.getMonth(), i + 1));
+}
+function shopView(days) {
   if (!ING) return '<p class="muted" style="padding:32px 8px;text-align:center">Lista non disponibile offline al primo avvio. Riprova online.</p>';
   const items = aggregate(days);
-  const got = new Set(shopChecks[period] || []);
-  const left = items.filter(e => !got.has(e.n)).length;
   const what = days.length === 1 ? 'per il giorno' : days.length === 7 ? 'per la settimana (lun–dom)' : 'per il mese';
   const byCat = CATS.concat([...new Set(items.map(e => e.c))].filter(c => !CATS.includes(c)))
     .map(c => [c, items.filter(e => e.c === c).sort((a, b) => a.n.localeCompare(b.n, 'it'))]).filter(([, l]) => l.length);
   return `
-    <div class="shop-head"><div class="grow">${left} da prendere ${what}</div>
-      <button class="text-btn" data-shop="copy">Copia</button>
-      <button class="text-btn" data-shop="reset"${got.size ? '' : ' disabled'}>Azzera</button></div>
+    <div class="shop-head"><div class="grow">${items.length} prodotti ${what}</div>
+      <button class="tonal-btn" data-shop="copy">Copia per Bring</button></div>
     ${byCat.map(([c, list]) => `<section class="shop-cat"><h3>${esc(c)}</h3>${list.map(e => `
-      <label class="shop-item${got.has(e.n) ? ' got' : ''}">
-        <input type="checkbox" data-period="${period}" data-item="${esc(e.n)}"${got.has(e.n) ? ' checked' : ''}>
+      <div class="shop-item"><span class="dotc"></span>
         <span class="nm">${esc(e.n)}${e.alt.size ? `<small>${esc([...e.alt].join(' · '))}</small>` : ''}</span>
-        <span class="qt">${fmtAmount(e)}</span></label>`).join('')}</section>`).join('')}
+        <span class="qt">${fmtAmount(e)}</span></div>`).join('')}</section>`).join('')}
     <p class="muted small" style="margin:8px 4px">Quantità a crudo, già ridotte del 20% per pranzo e cena. Olio EVO: 1–2 cucchiai a pasto. Verdure a volontà: prendine in abbondanza.</p>`;
 }
-function shopText(period) {
-  const d = parseKey(state.date);
-  const days = state.view === 'day' ? [d] : state.view === 'week' ? [...Array(7)].map((_, i) => addDays(weekStart(d), i))
-    : [...Array(new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate())].map((_, i) => new Date(d.getFullYear(), d.getMonth(), i + 1));
-  const got = new Set(shopChecks[period] || []);
-  const items = aggregate(days).filter(e => !got.has(e.n));
-  return `Spesa ${$('#navLabel').textContent}\n` + CATS.map(c => {
-    const l = items.filter(e => e.c === c);
-    return l.length ? `\n${c}\n` + l.map(e => `- ${e.n}${fmtAmount(e) ? ' ' + fmtAmount(e) : ''}`).join('\n') : '';
-  }).join('\n').replace(/\n{3,}/g, '\n\n');
+// one product per line: paste into Bring
+function shopText() {
+  const items = aggregate(shopDays());
+  return CATS.flatMap(c => items.filter(e => e.c === c).sort((a, b) => a.n.localeCompare(b.n, 'it'))
+    .map(e => `${e.n}${fmtAmount(e) && fmtAmount(e) !== 'q.b.' ? ' ' + fmtAmount(e).replace(' + q.b.', '') : ''}`)).join('\n');
 }
 
 // ---------- weight ----------
@@ -444,7 +489,9 @@ function renderWeight() {
   const nw = nextWeighDate();
   const nwDone = weighedOn(keyOf(nw)) && sameDay(nw, today());
   const nextLabel = nwDone ? nextWeighDate(addDays(today(), 1)) : nw;
+  const ck = checkinSection();
   main.innerHTML = `
+    ${ck.form}
     <section class="card weigh">
       <div class="ico">${icon('scale')}</div>
       <div class="grow"><div class="k">Prossima pesata</div>
@@ -480,9 +527,12 @@ function renderWeight() {
     <section class="card chart-card"><h3>Composizione corporea <small>kg · visite Bodygram</small></h3>
       <div class="chart-wrap" id="chBody"></div>
       <div class="legend"><span><i style="background:var(--primary)"></i>massa grassa</span><span><i style="background:var(--outline-var)"></i>massa magra</span></div></section>
+    <section class="card chart-card"><h3>Circonferenza vita <small>cm · check-in mensili</small></h3>
+      <div class="chart-wrap" id="chWaist"></div></section>
     <section class="card chart-card"><h3>Acqua <small>litri · ultimi 30 giorni</small></h3>
       <div class="chart-wrap" id="chWater"></div></section>
-    <div class="section-title">Storico</div>
+    ${ck.hist}
+    <div class="section-title">Storico pesate</div>
     <div class="card"><ul class="wlist">${all.slice().reverse().map((w, i, arr) => {
       const prev = arr[i + 1];
       const dd = prev ? w.kg - prev.kg : null;
@@ -630,7 +680,9 @@ function drawCharts() {
       { from: 18.5, to: 25, label: 'normopeso', k: 0 }, { from: 25, to: 30, label: 'sovrappeso', k: 1 },
       { from: 30, to: 35, label: 'obesità I', k: 2 }, { from: 35, to: 40, label: 'obesità II', k: 3 }],
   });
-  barChart($('#chBody'), DATA.body.map(([d, kg, fm], i, arr) => {
+  const body = DATA.body.concat(Object.values(checkins).filter(c => c.fm).map(c => [c.d, c.kg, c.fm]))
+    .sort((a, b) => a[0].localeCompare(b[0])).slice(-12);
+  barChart($('#chBody'), body.map(([d, kg, fm], i, arr) => {
     const dt = parseKey(d);
     return {
       label: fmt(dt, { month: 'short' }).replace('.', ''),
@@ -638,6 +690,9 @@ function drawCharts() {
       tip: `<b>${shortDate(d)}</b><br>grassa ${fmtKg(fm)} kg (${Math.round(fm / kg * 100)}%)<br>magra ${fmtKg(kg - fm)} kg`,
     };
   }), { H: 220 });
+  const waist = Object.values(checkins).filter(c => c.waist).sort((a, b) => a.d.localeCompare(b.d))
+    .map(c => ({ t: parseKey(c.d).getTime(), v: c.waist, user: true }));
+  lineChart($('#chWaist'), waist, { unit: 'cm', pad: 2, dec: 1, empty: 'Compare dopo due check-in con la misura della vita.' });
   const t0 = today();
   const days = [...Array(30)].map((_, i) => addDays(t0, i - 29));
   barChart($('#chWater'), days.map(d => {
@@ -668,6 +723,52 @@ function renderGoals() {
 }
 
 // ---------- rules ----------
+// ---------- reminders (web push via GitHub Actions) ----------
+const b64ToBytes = b => Uint8Array.from(atob((b + '='.repeat((4 - b.length % 4) % 4)).replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+function pushConfig() {
+  const n = state.notif, sub = load(PUSH_KEY, null);
+  return {
+    timezone: 'Europe/Rome',
+    subscriptions: sub ? [sub] : [],
+    weigh: { enabled: n.weigh, day: state.weighDay, time: n.weighTime },
+    water: { enabled: n.water, from: n.waterFrom, to: n.waterTo, everyMinutes: Number(n.waterEvery) },
+    checkin: { enabled: n.checkin, dayOfMonth: Number(n.checkinDay), time: n.checkinTime },
+  };
+}
+async function enablePush() {
+  if (!('serviceWorker' in navigator) || !('PushManager' in window)) return snack('Notifiche non supportate da questo browser');
+  const perm = await Notification.requestPermission();
+  if (perm !== 'granted') return snack('Permesso notifiche negato');
+  const reg = await navigator.serviceWorker.ready;
+  const sub = await reg.pushManager.getSubscription() || await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64ToBytes(VAPID_PUBLIC) });
+  save(PUSH_KEY, sub.toJSON());
+  renderRules();
+  snack('Notifiche attive su questo telefono: ora copia la configurazione');
+}
+function remindersCard() {
+  const n = state.notif, sub = load(PUSH_KEY, null);
+  const perm = 'Notification' in window ? Notification.permission : 'unsupported';
+  const sw = (id, on) => `<button class="switch" role="switch" aria-checked="${on}" data-notif-toggle="${id}"><span></span></button>`;
+  const time = (id, v) => `<input class="time" type="time" data-notif="${id}" value="${v}">`;
+  return `
+    <div class="section-title">Promemoria</div>
+    <div class="card reminders">
+      <div class="rem-row"><div class="grow"><b>Pesata</b><div class="muted small">ogni ${DAY_NAMES[state.weighDay]}</div></div>${time('weighTime', n.weighTime)}${sw('weigh', n.weigh)}</div>
+      <div class="rem-row"><div class="grow"><b>Acqua</b><div class="muted small">dalle
+        ${time('waterFrom', n.waterFrom)} alle ${time('waterTo', n.waterTo)} ogni
+        <select data-notif="waterEvery">${[60, 90, 120, 180].map(m => `<option value="${m}"${Number(n.waterEvery) === m ? ' selected' : ''}>${m < 120 ? m + ' min' : m / 60 + ' h'}</option>`).join('')}</select></div></div>${sw('water', n.water)}</div>
+      <div class="rem-row"><div class="grow"><b>Check-in mensile</b><div class="muted small">giorno
+        <select data-notif="checkinDay">${[...Array(28)].map((_, i) => `<option${Number(n.checkinDay) === i + 1 ? ' selected' : ''}>${i + 1}</option>`).join('')}</select> del mese</div></div>${time('checkinTime', n.checkinTime)}${sw('checkin', n.checkin)}</div>
+      <ol class="steps">
+        <li class="${sub && perm === 'granted' ? 'done' : ''}">${sub && perm === 'granted' ? 'Notifiche attive su questo telefono ✓' : '<button class="filled-btn" data-push="enable">Attiva notifiche</button>'}</li>
+        <li>Dopo ogni modifica: <button class="tonal-btn" data-push="copy"${sub ? '' : ' disabled'}>Copia configurazione</button></li>
+        <li><a class="text-btn" href="${CONFIG_EDIT_URL}" target="_blank" rel="noopener">Apri config su GitHub ↗</a> incolla tutto al posto del testo e premi “Commit changes”.</li>
+      </ol>
+      <div class="form-actions" style="justify-content:flex-start;margin-top:4px"><button class="text-btn" data-push="test"${perm === 'granted' ? '' : ' disabled'}>Invia notifica di prova</button></div>
+      <p class="muted small" style="margin:8px 0 0">Gli orari possono arrivare con qualche minuto di ritardo (GitHub Actions, gratis).</p>
+    </div>`;
+}
+
 function renderRules() {
   const phase = phaseFor(parseKey(state.date));
   const r = DATA.rules[phase.rules];
@@ -680,6 +781,7 @@ function renderRules() {
           <span style="background:${c.light.primary}"><i style="background:${c.light['primary-container']}"></i></span>${c.name}</button>`).join('')}</div>
       <div class="theme-row" style="margin-top:12px">${themes.map(([k, l]) => `<button class="fchip" data-theme-set="${k}" aria-pressed="${state.theme === k}">${l}</button>`).join('')}</div>
     </div>
+    ${remindersCard()}
     <div class="section-title">Regole del piano</div>
     <div class="rules-grid">${r.items.map(([k, v]) => `
       <article class="rule-card">
@@ -745,14 +847,22 @@ function bind() {
     if (gw) { state.weighPrefill = gw.dataset.goWeigh; state.tab = 'weight'; render(); scrollTo(0, 0); $('#wKg').focus(); return; }
     const sh = t.closest('[data-shop]');
     if (sh) {
-      const period = $('[data-period]') && $('[data-period]').dataset.period;
-      if (!period) return;
-      if (sh.dataset.shop === 'reset') { delete shopChecks[period]; save(SHOP_KEY, shopChecks); renderPlan(); return; }
-      const txt = shopText(period);
-      (navigator.share ? navigator.share({ text: txt }) : navigator.clipboard.writeText(txt).then(() => snack('Lista copiata')))
-        .catch(() => navigator.clipboard && navigator.clipboard.writeText(txt).then(() => snack('Lista copiata')));
+      const txt = shopText();
+      navigator.clipboard.writeText(txt).then(() => snack('Lista copiata: incollala in Bring'), () => snack('Copia non riuscita'));
       return;
     }
+    const pu = t.closest('[data-push]');
+    if (pu) {
+      if (pu.dataset.push === 'enable') enablePush().catch(err => snack('Errore: ' + err.message));
+      if (pu.dataset.push === 'copy') navigator.clipboard.writeText(JSON.stringify(pushConfig(), null, 2)).then(() => snack('Configurazione copiata'));
+      if (pu.dataset.push === 'test') navigator.serviceWorker.ready.then(r => r.showNotification('💧 Prova', { body: 'Le notifiche funzionano.', icon: 'icons/icon-192.png', badge: 'icons/icon-192.png', tag: 'test' }));
+      return;
+    }
+    const nt = t.closest('[data-notif-toggle]');
+    if (nt) { state.notif[nt.dataset.notifToggle] = !state.notif[nt.dataset.notifToggle]; persist(); renderRules(); return; }
+    if (t.closest('[data-go-checkin]')) { state.tab = 'weight'; render(); scrollTo(0, 0); const f = $('#ckKg'); if (f) f.focus(); return; }
+    const dck = t.closest('[data-del-ck]');
+    if (dck) { delete checkins[dck.dataset.delCk]; save(CHECKIN_KEY, checkins); renderWeight(); snack('Check-in eliminato'); return; }
     const rg = t.closest('[data-range]');
     if (rg) { state.range = rg.dataset.range; persist(); renderWeight(); return; }
     const th = t.closest('[data-theme-set]');
@@ -767,13 +877,26 @@ function bind() {
       return;
     }
     if (t.id === 'exportBtn') {
-      const blob = new Blob([JSON.stringify({ weights: userWeights, water }, null, 1)], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify({ weights: userWeights, water, checkins }, null, 1)], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob); a.download = `dieta-backup-${keyOf(today())}.json`; a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     }
   });
   main.addEventListener('submit', e => {
+    if (e.target.id === 'ckForm') {
+      e.preventDefault();
+      const num = id => { const v = parseFloat(String($(id).value).replace(',', '.')); return Number.isFinite(v) ? v : null; };
+      const d = $('#ckDate').value, kg = num('#ckKg');
+      if (!d || !(kg > 30 && kg < 250)) return snack('Controlla data e peso');
+      checkins[d.slice(0, 7)] = { d, kg: Math.round(kg * 10) / 10, fm: num('#ckFm'), waist: num('#ckWaist'), hips: num('#ckHips') };
+      save(CHECKIN_KEY, checkins);
+      userWeights = userWeights.filter(w => w.d !== d).concat({ d, kg: Math.round(kg * 10) / 10 }).sort((a, b) => a.d.localeCompare(b.d));
+      save(WEIGHTS_KEY, userWeights);
+      renderWeight(); scrollTo(0, 0); snack('Check-in salvato');
+      checkNewAchievements();
+      return;
+    }
     if (e.target.id !== 'wForm') return;
     e.preventDefault();
     const d = $('#wDate').value, kg = parseFloat(String($('#wKg').value).replace(',', '.'));
@@ -792,16 +915,7 @@ function bind() {
       snack(state.phase === 'auto' ? 'Il piano segue il mese' : 'Piano fissato: ' + phaseFor(parseKey(state.date)).label);
       return;
     }
-    if (t.dataset.period) {
-      const list = new Set(shopChecks[t.dataset.period] || []);
-      if (t.checked) list.add(t.dataset.item); else list.delete(t.dataset.item);
-      if (list.size) shopChecks[t.dataset.period] = [...list]; else delete shopChecks[t.dataset.period];
-      save(SHOP_KEY, shopChecks);
-      t.closest('.shop-item').classList.toggle('got', t.checked);
-      const head = $('.shop-head .grow');
-      if (head) head.textContent = head.textContent.replace(/^\d+/, main.querySelectorAll('[data-period]:not(:checked)').length);
-      return;
-    }
+    if (t.dataset.notif) { state.notif[t.dataset.notif] = t.value; persist(); return; }
     if (t.id === 'weighDay') { state.weighDay = Number(t.value); persist(); renderWeight(); return; }
     if (t.id !== 'importIn' || !t.files[0]) return;
     try {
@@ -811,6 +925,7 @@ function bind() {
       list.forEach(w => map.set(w.d, { d: w.d, kg: w.kg }));
       userWeights = [...map.values()].sort((a, b) => a.d.localeCompare(b.d));
       if (obj.water && typeof obj.water === 'object') water = Object.assign({}, obj.water, water);
+      if (obj.checkins && typeof obj.checkins === 'object') { checkins = Object.assign({}, obj.checkins, checkins); save(CHECKIN_KEY, checkins); }
       save(WEIGHTS_KEY, userWeights); save(WATER_KEY, water);
       renderWeight(); snack(`Importate ${list.length} pesate`);
     } catch { snack('File non valido'); }
@@ -842,8 +957,13 @@ async function init() {
   try { ING = await (await fetch('data/ingredients.json')).json(); } catch { ING = null; }
   if (state.phase !== 'auto' && !DATA.phases.some(p => p.id === state.phase)) state.phase = 'auto';
   if (!COLORS[state.color]) state.color = 'verde';
+  const q = new URLSearchParams(location.search);
+  if (q.has('tab')) state.tab = q.get('tab');
+  if (q.has('water')) { state.tab = 'plan'; state.view = 'day'; state.date = keyOf(today()); }
   bind();
   render();
+  if (q.has('water')) { setWater(keyOf(today()), (water[keyOf(today())] || 0) + 1); snack('+1 bicchiere d’acqua'); }
+  if ([...q.keys()].length) history.replaceState(null, '', location.pathname);
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
 }
 

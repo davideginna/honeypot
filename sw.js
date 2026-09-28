@@ -1,4 +1,4 @@
-const CACHE = 'dieta-v4';
+const CACHE = 'dieta-v5';
 const ASSETS = [
   './', 'index.html', 'app.css', 'app.js', 'manifest.webmanifest', 'data/diet.json', 'data/ingredients.json',
   'icons/icon-any.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png',
@@ -25,4 +25,26 @@ self.addEventListener('fetch', e => {
       })
       .catch(() => caches.match(e.request, { ignoreSearch: true }).then(r => r || caches.match('index.html')))
   );
+});
+
+// reminders sent by the scheduled GitHub Action (push/send.mjs)
+self.addEventListener('push', e => {
+  let data = {};
+  try { data = e.data ? e.data.json() : {}; } catch { data = { body: e.data && e.data.text() }; }
+  const opts = {
+    body: data.body || '', tag: data.tag || 'dieta', renotify: true,
+    icon: 'icons/icon-192.png', badge: 'icons/icon-192.png',
+    data: { url: data.url || './' },
+  };
+  if (data.tag === 'water') opts.actions = [{ action: 'drink', title: '+1 bicchiere' }];
+  e.waitUntil(self.registration.showNotification(data.title || 'La mia dieta', opts));
+});
+
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  const url = new URL(e.action === 'drink' ? './?water=1' : e.notification.data.url, self.registration.scope).href;
+  e.waitUntil(clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
+    const win = list.find(c => c.url.startsWith(self.registration.scope));
+    return win ? win.navigate(url).then(c => c && c.focus()) : clients.openWindow(url);
+  }));
 });

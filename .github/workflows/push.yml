@@ -1,0 +1,73 @@
+name: Push reminders
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Compute and print due reminders without sending'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write # only needed by the monthly keepalive commit
+
+concurrency:
+  group: push
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: push/package-lock.json
+
+      - name: Install
+        working-directory: push
+        run: npm ci --no-audit --no-fund
+
+      - name: Restore state
+        uses: actions/cache/restore@v4
+        with:
+          path: push-state.json
+          key: push-state-${{ github.run_id }}
+          restore-keys: push-state-
+
+      - name: Send due reminders
+        working-directory: push
+        env:
+          PUSH_STATE: ${{ github.workspace }}/push-state.json
+          VAPID_PUBLIC_KEY: BK-4qV_LIIsKAzUtEpA8OuAqfzDUQAt1b1pA0gbjPkOhzpp1QftWtSqcpi6YVkbrAEs1my-TUR3ng0GNxZWJskw
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+        run: node send.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Save state
+        # Also runs if some sends failed, so the window still advances.
+        if: ${{ !cancelled() && !inputs.dry_run && hashFiles('push-state.json') != '' }}
+        uses: actions/cache/save@v4
+        with:
+          path: push-state.json
+          key: push-state-${{ github.run_id }}
+
+      # GitHub disables scheduled workflows in public repos after 60 days without
+      # repository activity. Once a month, push an empty commit to keep it alive.
+      - name: Keepalive
+        if: ${{ !cancelled() && github.event_name == 'schedule' }}
+        run: |
+          if [ "$(date -u +%d)" != "01" ] || [ "$(date -u +%H)" != "03" ] || [ "$((10#$(date -u +%M)))" -ge 15 ]; then
+            echo "Not keepalive time, skipping."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --ff-only origin "${GITHUB_REF_NAME}"
+          git commit --allow-empty -m "chore: keepalive [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

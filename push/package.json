@@ -1,0 +1,16 @@
+{
+  "name": "honeypot-push",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Scheduled web-push reminders for the honeypot PWA (run by GitHub Actions).",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "send": "node send.mjs",
+    "dry-run": "node send.mjs --dry-run"
+  },
+  "dependencies": {
+    "web-push": "^3.6.7"
+  }
+}

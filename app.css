@@ -362,3 +362,24 @@ details.rule[open] .chev { transform: rotate(180deg); }
 .chart .goal-line { stroke: var(--tertiary); stroke-width: 1.5; stroke-dasharray: 4 3; }
 .filters { margin: 0 4px 10px; }
 .chart .bar-label { fill: var(--on-primary); font-size: 11px; font-weight: 600; }
+
+.logo { width: 32px; height: 32px; border-radius: 9px; flex: none; box-shadow: var(--shadow); }
+.shop-item { cursor: default; }
+.shop-item .dotc { width: 8px; height: 8px; border-radius: 4px; background: var(--primary); flex: none; opacity: .7; }
+
+/* Reminders */
+.reminders .rem-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--outline-var); flex-wrap: wrap; }
+.reminders .rem-row .muted { line-height: 2.2; }
+.reminders input.time, .reminders select {
+  height: 34px; border: 1px solid var(--outline); border-radius: 8px; background: transparent; padding: 0 6px; color: var(--on-surface);
+}
+.reminders select option { color: #1A1C18; background: #fff; }
+.switch { width: 52px; height: 32px; border-radius: 16px; border: 2px solid var(--outline); background: var(--surface-highest); position: relative; cursor: pointer; flex: none; padding: 0; }
+.switch span { position: absolute; top: 6px; left: 6px; width: 16px; height: 16px; border-radius: 8px; background: var(--outline); transition: .2s; }
+.switch[aria-checked="true"] { background: var(--primary); border-color: var(--primary); }
+.switch[aria-checked="true"] span { left: 24px; top: 2px; width: 24px; height: 24px; border-radius: 12px; background: var(--on-primary); }
+.steps { margin: 14px 0 0; padding-left: 22px; font-size: 14px; }
+.steps li { margin: 10px 0; }
+.steps li.done { color: var(--primary); font-weight: 500; }
+.checkin { background: var(--primary-container); color: var(--on-primary-container); }
+.checkin .ico { color: var(--primary); }
