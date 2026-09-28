@@ -348,3 +348,17 @@ details.rule[open] .chev { transform: rotate(180deg); }
 .shop-item .qt { font-weight: 500; white-space: nowrap; }
 .shop-item.got .nm, .shop-item.got .qt { text-decoration: line-through; opacity: .5; }
 @media (max-width: 360px) { .navbar button span:last-child { font-size: 11px; } }
+
+/* Charts */
+.chart-card h3 { margin: 0 0 8px; font-size: 16px; font-weight: 500; }
+.chart-card h3 small { font-size: 12px; font-weight: 400; color: var(--on-surface-var); margin-left: 6px; }
+.chart .band { fill: var(--on-surface); }
+.chart .band.b0 { opacity: .02; } .chart .band.b1 { opacity: .05; } .chart .band.b2 { opacity: .08; } .chart .band.b3 { opacity: .11; }
+.chart .band-label { fill: var(--on-surface-var); font-size: 10px; }
+.chart .bar.fat { fill: var(--primary); }
+.chart .bar.lean { fill: var(--outline-var); }
+.chart .bar.water { fill: var(--tertiary); opacity: .45; }
+.chart .bar.water.ok { opacity: 1; }
+.chart .goal-line { stroke: var(--tertiary); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.filters { margin: 0 4px 10px; }
+.chart .bar-label { fill: var(--on-primary); font-size: 11px; font-weight: 600; }

@@ -215,7 +215,7 @@ function render() {
     if (b.dataset.tab === state.tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
   });
   $('#planControls').hidden = state.tab !== 'plan' && state.tab !== 'shop';
-  const titles = { shop: 'Lista della spesa', plan: 'La mia dieta', weight: 'Peso', goals: 'Traguardi', rules: 'Regole' };
+  const titles = { shop: 'Lista della spesa', plan: 'La mia dieta', weight: 'Andamento', goals: 'Traguardi', rules: 'Regole' };
   $('#title').textContent = titles[state.tab];
   if (state.tab === 'plan' || state.tab === 'shop') renderPlan();
   else if (state.tab === 'weight') renderWeight();
@@ -461,11 +461,6 @@ function renderWeight() {
         <div class="s">${delta !== null ? 'dal ' + shortDate(restart.d) : shortDate(min.d)}</div></div>
     </div>
     <div class="card">
-      <div class="filters">${ranges.map(([k, l]) => `<button class="fchip" data-range="${k}" aria-pressed="${state.range === k}">${l}</button>`).join('')}</div>
-      <div class="chart-wrap" id="chartWrap"></div>
-      <div class="legend"><span><i style="background:var(--primary)"></i>visite dietista</span><span><i></i>tue pesate</span></div>
-    </div>
-    <div class="card">
       <div class="section-title" style="margin-top:0">Nuova pesata</div>
       <form id="wForm">
         <div class="form-row">
@@ -475,6 +470,18 @@ function renderWeight() {
         <div class="form-actions"><button class="filled-btn" type="submit">Salva</button></div>
       </form>
     </div>
+    <div class="section-title">Grafici</div>
+    <div class="filters">${ranges.map(([k, l]) => `<button class="fchip" data-range="${k}" aria-pressed="${state.range === k}">${l}</button>`).join('')}</div>
+    <section class="card chart-card"><h3>Peso <small>kg</small></h3>
+      <div class="chart-wrap" id="chWeight"></div>
+      <div class="legend"><span><i style="background:var(--primary)"></i>visite dietista</span><span><i></i>tue pesate</span></div></section>
+    <section class="card chart-card"><h3>BMI <small>altezza ${DATA.height} cm</small></h3>
+      <div class="chart-wrap" id="chBmi"></div></section>
+    <section class="card chart-card"><h3>Composizione corporea <small>kg · visite Bodygram</small></h3>
+      <div class="chart-wrap" id="chBody"></div>
+      <div class="legend"><span><i style="background:var(--primary)"></i>massa grassa</span><span><i style="background:var(--outline-var)"></i>massa magra</span></div></section>
+    <section class="card chart-card"><h3>Acqua <small>litri · ultimi 30 giorni</small></h3>
+      <div class="chart-wrap" id="chWater"></div></section>
     <div class="section-title">Storico</div>
     <div class="card"><ul class="wlist">${all.slice().reverse().map((w, i, arr) => {
       const prev = arr[i + 1];
@@ -490,85 +497,154 @@ function renderWeight() {
       <label class="outlined-btn" style="display:inline-flex;align-items:center">Importa<input id="importIn" type="file" accept="application/json" hidden></label>
     </div>`;
   delete state.weighPrefill;
-  drawChart();
+  drawCharts();
 }
 
-function drawChart() {
-  const wrap = $('#chartWrap');
-  if (!wrap) return;
-  let pts = allWeights();
-  if (state.range === 'hist') pts = pts.filter(p => p.src === 'storico' && p.d >= '2023-01-01');
-  if (state.range === 'mine') pts = pts.filter(p => p.src === 'mio');
-  if (pts.length < 2) {
-    wrap.innerHTML = `<p class="muted" style="padding:32px 8px;text-align:center">${state.range === 'mine'
-      ? 'Aggiungi almeno due pesate per vedere l’andamento della ripartenza.' : 'Dati insufficienti.'}</p>`;
-    return;
-  }
-  const W = Math.max(280, wrap.clientWidth), H = window.innerWidth >= 720 ? 300 : 240;
-  const m = { t: 16, r: 12, b: 28, l: 36 };
-  const tx = pts.map(p => parseKey(p.d).getTime());
-  const x0 = tx[0], x1 = tx[tx.length - 1];
-  const kgs = pts.map(p => p.kg);
-  let y0 = Math.floor(Math.min(...kgs) - 1), y1 = Math.ceil(Math.max(...kgs) + 1);
-  const step = (y1 - y0) > 12 ? 4 : 2;
-  y0 = Math.floor(y0 / step) * step; y1 = Math.ceil(y1 / step) * step;
-  const X = t => m.l + (t - x0) / (x1 - x0 || 1) * (W - m.l - m.r);
-  const Y = v => m.t + (y1 - v) / (y1 - y0) * (H - m.t - m.b);
-  let grid = '';
-  for (let v = y0; v <= y1; v += step) {
-    grid += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text class="axis" x="${m.l - 6}" y="${Y(v) + 4}" text-anchor="end">${v}</text>`;
-  }
-  const span = (x1 - x0) / 864e5;
-  const d0 = new Date(x0), d1 = new Date(x1);
-  let xt = '';
+// ---------- charts (inline SVG, one y-scale per chart) ----------
+function chartFrame(wrap, H) {
+  const W = Math.max(280, wrap.clientWidth);
+  return { W, H, m: { t: 14, r: 12, b: 26, l: 34 } };
+}
+function yTicks(lo, hi, maxTicks = 5) {
+  const raw = (hi - lo) / maxTicks;
+  const step = [1, 2, 4, 5, 10, 20].find(s => s >= raw) || 50;
+  const a = Math.floor(lo / step) * step, b = Math.ceil(hi / step) * step;
+  const out = [];
+  for (let v = a; v <= b + 1e-9; v += step) out.push(+v.toFixed(2));
+  return out;
+}
+function timeTicks(x0, x1) {
+  const span = (x1 - x0) / 864e5, d0 = new Date(x0), d1 = new Date(x1), out = [];
   if (span > 540) {
-    for (let y = d0.getFullYear() + 1; y <= d1.getFullYear(); y++) {
-      xt += `<text class="axis" x="${X(new Date(y, 0, 1).getTime())}" y="${H - 8}" text-anchor="middle">${y}</text>`;
-    }
+    for (let y = d0.getFullYear() + 1; y <= d1.getFullYear(); y++) out.push([new Date(y, 0, 1).getTime(), String(y)]);
+  } else if (span < 45) {
+    for (let d = new Date(x0); d.getTime() <= x1; d = addDays(d, Math.max(1, Math.ceil(span / 5)))) out.push([d.getTime(), `${d.getDate()}/${d.getMonth() + 1}`]);
   } else {
     const every = span > 200 ? 2 : 1;
     for (let d = new Date(d0.getFullYear(), d0.getMonth() + 1, 1), i = 0; d.getTime() <= x1; d = new Date(d.getFullYear(), d.getMonth() + 1, 1), i++) {
-      if (i % every) continue;
-      xt += `<text class="axis" x="${X(d.getTime())}" y="${H - 8}" text-anchor="middle">${fmt(d, { month: 'short' })}</text>`;
-    }
-    if (span < 45) {
-      xt = pts.map((p, i) => `<text class="axis" x="${X(tx[i])}" y="${H - 8}" text-anchor="middle">${parseKey(p.d).getDate()}/${parseKey(p.d).getMonth() + 1}</text>`).join('');
+      if (!(i % every)) out.push([d.getTime(), fmt(d, { month: 'short' })]);
     }
   }
-  // break lines at gaps > 200 days, bridge with a dotted segment
-  const segs = [[0]];
-  for (let i = 1; i < pts.length; i++) {
-    if ((tx[i] - tx[i - 1]) / 864e5 > 200) segs.push([i]); else segs[segs.length - 1].push(i);
-  }
-  const path = idx => idx.map((i, k) => `${k ? 'L' : 'M'}${X(tx[i]).toFixed(1)},${Y(kgs[i]).toFixed(1)}`).join('');
-  let lines = segs.map(s => `<path class="line" d="${path(s)}"/>`).join('');
-  for (let s = 1; s < segs.length; s++) {
-    const a = segs[s - 1][segs[s - 1].length - 1], b = segs[s][0];
-    lines += `<path class="gap" d="M${X(tx[a])},${Y(kgs[a])}L${X(tx[b])},${Y(kgs[b])}"/>`;
-  }
-  const dots = pts.map((p, i) => `<circle class="pt${p.src === 'mio' ? ' user' : ''}" cx="${X(tx[i])}" cy="${Y(p.kg)}" r="4"/>`).join('');
-  wrap.innerHTML = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Andamento del peso: da ${fmtKg(kgs[0])} a ${fmtKg(kgs[kgs.length - 1])} kg">
-    ${grid}${xt}${lines}${dots}
-    <line class="cross" id="cross" y1="${m.t}" y2="${H - m.b}" visibility="hidden"/>
-    <circle class="hl" id="hl" r="6" visibility="hidden"/>
-    <rect x="0" y="0" width="${W}" height="${H}" fill="transparent"/></svg><div class="tip" id="tip"></div>`;
-  const svg = $('svg', wrap), tip = $('#tip'), cross = $('#cross'), hl = $('#hl');
+  return out;
+}
+// Crosshair + tooltip following the nearest x
+function attachHover(wrap, svg, W, H, xs, tipHtml, yAt) {
+  const tip = document.createElement('div');
+  tip.className = 'tip'; wrap.appendChild(tip);
+  const cross = svg.querySelector('.cross'), hl = svg.querySelector('.hl');
   const move = ev => {
     const r = svg.getBoundingClientRect();
     const px = (ev.clientX - r.left) * (W / r.width);
     let best = 0;
-    tx.forEach((t, i) => { if (Math.abs(X(t) - px) < Math.abs(X(tx[best]) - px)) best = i; });
-    const cx = X(tx[best]), cy = Y(kgs[best]);
+    xs.forEach((x, i) => { if (Math.abs(x - px) < Math.abs(xs[best] - px)) best = i; });
+    const cx = xs[best], cy = yAt(best);
     cross.setAttribute('x1', cx); cross.setAttribute('x2', cx); cross.setAttribute('visibility', 'visible');
-    hl.setAttribute('cx', cx); hl.setAttribute('cy', cy); hl.setAttribute('visibility', 'visible');
-    tip.innerHTML = `<b>${fmtKg(kgs[best])} kg</b><br>${shortDate(pts[best].d)}`;
-    tip.style.left = Math.min(Math.max(cx * r.width / W, 50), r.width - 50) + 'px';
+    if (hl) { hl.setAttribute('cx', cx); hl.setAttribute('cy', cy); hl.setAttribute('visibility', 'visible'); }
+    tip.innerHTML = tipHtml(best);
+    tip.style.left = Math.min(Math.max(cx * r.width / W, 56), r.width - 56) + 'px';
     tip.style.top = (cy * r.height / H - 10) + 'px'; tip.style.opacity = 1;
   };
-  const leave = () => { tip.style.opacity = 0; cross.setAttribute('visibility', 'hidden'); hl.setAttribute('visibility', 'hidden'); };
   svg.addEventListener('pointermove', move);
   svg.addEventListener('pointerdown', move);
-  svg.addEventListener('pointerleave', leave);
+  svg.addEventListener('pointerleave', () => {
+    tip.style.opacity = 0; cross.setAttribute('visibility', 'hidden'); if (hl) hl.setAttribute('visibility', 'hidden');
+  });
+}
+function lineChart(wrap, pts, { H = 220, pad = 1, bands = [], unit = '', dec = 1, empty = 'Dati insufficienti.' } = {}) {
+  if (pts.length < 2) { wrap.innerHTML = `<p class="muted small" style="padding:24px 8px;text-align:center">${empty}</p>`; return; }
+  const { W, m } = chartFrame(wrap, H);
+  const tx = pts.map(p => p.t), vs = pts.map(p => p.v);
+  const x0 = tx[0], x1 = tx[tx.length - 1];
+  const ticks = yTicks(Math.min(...vs) - pad, Math.max(...vs) + pad);
+  const y0 = ticks[0], y1 = ticks[ticks.length - 1];
+  const X = t => m.l + (t - x0) / (x1 - x0 || 1) * (W - m.l - m.r);
+  const Y = v => m.t + (y1 - Math.min(y1, Math.max(y0, v))) / (y1 - y0) * (H - m.t - m.b);
+  const num = v => v.toLocaleString('it-IT', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  let g = bands.filter(b => b.to > y0 && b.from < y1).map((b, i) =>
+    `<rect class="band b${b.k}" x="${m.l}" width="${W - m.l - m.r}" y="${Y(b.to)}" height="${Y(b.from) - Y(b.to)}"/>` +
+    `<text class="band-label" x="${W - m.r - 6}" y="${(Y(Math.min(b.to, y1)) + Y(Math.max(b.from, y0))) / 2 + 4}" text-anchor="end">${b.label}</text>`).join('');
+  g += ticks.map(v => `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text class="axis" x="${m.l - 6}" y="${Y(v) + 4}" text-anchor="end">${v}</text>`).join('');
+  g += timeTicks(x0, x1).map(([t, l]) => `<text class="axis" x="${X(t)}" y="${H - 7}" text-anchor="middle">${l}</text>`).join('');
+  const segs = [[0]];
+  for (let i = 1; i < pts.length; i++) {
+    if ((tx[i] - tx[i - 1]) / 864e5 > 200) segs.push([i]); else segs[segs.length - 1].push(i);
+  }
+  const path = idx => idx.map((i, k) => `${k ? 'L' : 'M'}${X(tx[i]).toFixed(1)},${Y(vs[i]).toFixed(1)}`).join('');
+  let lines = segs.map(sg => `<path class="line" d="${path(sg)}"/>`).join('');
+  for (let k = 1; k < segs.length; k++) {
+    const a = segs[k - 1][segs[k - 1].length - 1], b = segs[k][0];
+    lines += `<path class="gap" d="M${X(tx[a])},${Y(vs[a])}L${X(tx[b])},${Y(vs[b])}"/>`;
+  }
+  const dots = pts.map((p, i) => `<circle class="pt${p.user ? ' user' : ''}" cx="${X(tx[i])}" cy="${Y(vs[i])}" r="4"/>`).join('');
+  wrap.innerHTML = `<svg class="chart" style="height:${H}px" viewBox="0 0 ${W} ${H}" role="img" aria-label="da ${num(vs[0])} a ${num(vs[vs.length - 1])} ${unit}">
+    ${g}${lines}${dots}<line class="cross" y1="${m.t}" y2="${H - m.b}" visibility="hidden"/><circle class="hl" r="6" visibility="hidden"/>
+    <rect width="${W}" height="${H}" fill="transparent"/></svg>`;
+  attachHover(wrap, $('svg', wrap), W, H, tx.map(X), i => `<b>${num(vs[i])} ${unit}</b><br>${shortDate(keyOf(new Date(tx[i])))}`, i => Y(vs[i]));
+}
+// bars: [{label, t, segs:[{v, cls}], tip}] stacked from 0
+function barChart(wrap, bars, { H = 200, goal = null, unit = '', dec = 1, labelEvery = 1 } = {}) {
+  const { W, m } = chartFrame(wrap, H);
+  const totals = bars.map(b => b.segs.reduce((s, x) => s + x.v, 0));
+  const ticks = yTicks(0, Math.max(goal || 0, ...totals, 0.1) * 1.05, 4);
+  const y1 = ticks[ticks.length - 1];
+  const Y = v => m.t + (y1 - v) / y1 * (H - m.t - m.b);
+  const bw = (W - m.l - m.r) / bars.length;
+  const w = Math.max(3, Math.min(40, bw * 0.62));
+  const xs = bars.map((_, i) => m.l + bw * i + bw / 2);
+  let g = ticks.map(v => `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text class="axis" x="${m.l - 6}" y="${Y(v) + 4}" text-anchor="end">${v.toLocaleString('it-IT')}</text>`).join('');
+  g += bars.map((b, i) => (i % labelEvery ? '' : `<text class="axis" x="${xs[i]}" y="${H - 7}" text-anchor="middle">${b.label}</text>`)).join('');
+  const r = Math.min(4, w / 2);
+  const marks = bars.map((b, i) => {
+    let base = 0;
+    return b.segs.map((sg, k) => {
+      if (!sg.v) return '';
+      const top = Y(base + sg.v), bot = Y(base) - (k ? 2 : 0); // 2px surface gap between stacked fills
+      base += sg.v;
+      const h = Math.max(1, bot - top), x = xs[i] - w / 2, rr = Math.min(r, h);
+      const isTop = k === b.segs.length - 1 || !b.segs.slice(k + 1).some(z => z.v);
+      const d = isTop
+        ? `M${x},${bot}V${top + rr}Q${x},${top} ${x + rr},${top}H${x + w - rr}Q${x + w},${top} ${x + w},${top + rr}V${bot}Z`
+        : `M${x},${bot}V${top}H${x + w}V${bot}Z`;
+      const lab = sg.label ? `<text class="bar-label" x="${xs[i]}" y="${top + (bot - top) / 2 + 4}" text-anchor="middle">${sg.label}</text>` : '';
+      return `<path class="bar ${sg.cls}" d="${d}"/>${lab}`;
+    }).join('');
+  }).join('');
+  const goalLine = goal ? `<line class="goal-line" x1="${m.l}" x2="${W - m.r}" y1="${Y(goal)}" y2="${Y(goal)}"/><text class="band-label" x="${m.l + 4}" y="${Y(goal) - 5}">obiettivo ${goal.toLocaleString('it-IT')} ${unit}</text>` : '';
+  wrap.innerHTML = `<svg class="chart" style="height:${H}px" viewBox="0 0 ${W} ${H}" role="img">
+    ${g}${marks}${goalLine}<line class="cross" y1="${m.t}" y2="${H - m.b}" visibility="hidden"/>
+    <rect width="${W}" height="${H}" fill="transparent"/></svg>`;
+  attachHover(wrap, $('svg', wrap), W, H, xs, i => bars[i].tip, i => Y(totals[i]));
+}
+
+function drawCharts() {
+  if (!$('#chWeight')) return;
+  let pts = allWeights();
+  if (state.range === 'hist') pts = pts.filter(p => p.src === 'storico' && p.d >= '2023-01-01');
+  if (state.range === 'mine') pts = pts.filter(p => p.src === 'mio');
+  const tp = pts.map(p => ({ t: parseKey(p.d).getTime(), v: p.kg, user: p.src === 'mio' }));
+  const empty = state.range === 'mine' ? 'Aggiungi almeno due pesate per vedere la ripartenza.' : 'Dati insufficienti.';
+  lineChart($('#chWeight'), tp, { unit: 'kg', empty });
+  const h2 = Math.pow(DATA.height / 100, 2);
+  lineChart($('#chBmi'), tp.map(p => ({ ...p, v: p.v / h2 })), {
+    unit: '', pad: 1.5, empty, bands: [
+      { from: 18.5, to: 25, label: 'normopeso', k: 0 }, { from: 25, to: 30, label: 'sovrappeso', k: 1 },
+      { from: 30, to: 35, label: 'obesità I', k: 2 }, { from: 35, to: 40, label: 'obesità II', k: 3 }],
+  });
+  barChart($('#chBody'), DATA.body.map(([d, kg, fm], i, arr) => {
+    const dt = parseKey(d);
+    return {
+      label: fmt(dt, { month: 'short' }).replace('.', ''),
+      segs: [{ v: kg - fm, cls: 'lean' }, { v: fm, cls: 'fat', label: i === 0 || i === arr.length - 1 ? String(Math.round(fm)) : '' }],
+      tip: `<b>${shortDate(d)}</b><br>grassa ${fmtKg(fm)} kg (${Math.round(fm / kg * 100)}%)<br>magra ${fmtKg(kg - fm)} kg`,
+    };
+  }), { H: 220 });
+  const t0 = today();
+  const days = [...Array(30)].map((_, i) => addDays(t0, i - 29));
+  barChart($('#chWater'), days.map(d => {
+    const n = water[keyOf(d)] || 0;
+    return { label: String(d.getDate()), segs: [{ v: n * GLASS_ML / 1000, cls: n >= WATER_GOAL ? 'water ok' : 'water' }],
+      tip: `<b>${liters(n)} L</b><br>${fmt(d, { weekday: 'short', day: 'numeric', month: 'short' })}` };
+  }), { H: 180, goal: WATER_GOAL * GLASS_ML / 1000, unit: 'L', labelEvery: 5 });
 }
 
 // ---------- achievements ----------
@@ -751,7 +827,7 @@ function bind() {
   }, { passive: true });
 
   let rt;
-  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => state.tab === 'weight' && drawChart(), 150); });
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => state.tab === 'weight' && drawCharts(), 150); });
   document.addEventListener('visibilitychange', () => { if (!document.hidden && (state.tab === 'plan' || state.tab === 'shop')) render(); });
 }
 
